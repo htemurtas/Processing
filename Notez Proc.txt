@@ -1,0 +1,3986 @@
+// Top row, filled and stroked
+arc(20, 20, 28, 28, radians(0), radians(225), OPEN);
+arc(50, 20, 28, 28, radians(0), radians(225), CHORD);
+arc(80, 20, 28, 28, radians(0), radians(225), PIE);
+// Middle row, not stroked
+noStroke();
+arc(20, 50, 28, 28, radians(0), radians(225), OPEN);
+arc(50, 50, 28, 28, radians(0), radians(225), CHORD);
+arc(80, 50, 28, 28, radians(0), radians(225), PIE);
+// Bottom row, not filled
+stroke(0);
+noFill();
+arc(20, 80, 28, 28, radians(0), radians(225), OPEN);
+arc(50, 80, 28, 28, radians(0), radians(225), CHORD);
+arc(80, 80, 28, 28, radians(0), radians(225), PIE);
+
+/*
+bezier(32, 20, 80, 5, 80, 75, 30, 75);
+line(32, 20, 80, 5);
+ellipse(80, 5, 4, 4);
+line(80, 75, 30, 75);
+ellipse(80, 75, 4, 4);
+*/
+bezier(85, 20, 40, 10, 60, 90, 15, 80);
+line(85, 20, 40, 10);
+ellipse(40, 10, 4, 4); 
+line(60, 90, 15, 80);
+ellipse(60, 90, 4, 4);
+
+size(600, 450);
+background(0);
+stroke(153, 204);
+strokeWeight(12);
+line(20, 20, 40, 80);
+line(40, 20, 20, 80);
+blendMode(ADD);  // Change blend mode
+line(60, 20, 80, 80);
+line(80, 20, 60, 80);
+blendMode(BLEND);  // Restore default blend mode
+line(100, 20, 120, 80);
+line(120, 20, 100, 80);
+
+size(600,450);
+background(0,0,255);
+//background(#0000ff);
+strokeWeight(5);
+stroke(255,0,0);
+//noStroke();
+fill(0,255,0);
+//noFill();
+line(50,250,550,100);
+triangle(50,50,550,50,150,200);
+quad(50,300,250,400,550,350,450,200);
+
+size(600,450);
+background(0,0,255);
+strokeWeight(25);
+stroke(255,0,0);
+fill(0,255,0);
+strokeJoin(MITER); // Default
+rect(50,50,120,350);
+strokeJoin(BEVEL);
+rect(240,50,120,350);
+strokeJoin(ROUND);
+rect(430,50,120,350);
+strokeWeight(3);
+stroke(255);
+noFill();
+rect(50,50,500,350);
+
+size(600,450);
+background(#0000ff);
+strokeWeight(9);
+stroke(#ff0000);
+fill(#ffaaaa);
+rectMode(CORNER); // Default
+rect(50,50,500,350);
+ellipseMode(CORNER);
+ellipse(50,50,500,350);
+stroke(#00ff00);
+fill(#aaffaa);
+rectMode(CORNERS);
+rect(100,100,500,350);
+ellipseMode(CORNERS);
+ellipse(100,100,500,350);
+
+size(600,450);
+background(#0000ff);
+strokeWeight(9);
+float a = width / 2f;
+float b = height / 2f;
+float c = a - 50;
+float d = b - 50;
+stroke(#ff0000);
+fill(#ffaaaa);
+rectMode(RADIUS);
+rect(a,b,c,d);
+ellipseMode(RADIUS);
+ellipse(a,b,c,d);
+stroke(#00ff00);
+fill(#aaffaa);
+rectMode(CENTER);
+rect(a,b,c,d);
+ellipseMode(CENTER); // Default
+ellipse(a,b,c,d);
+
+size(600, 450);
+background(#0000ff);
+float w = 240, h = 150;
+strokeWeight(5);
+stroke(#ff0000);
+fill(#00ff00);
+arc(170,125,w,h,0.25*PI,1.5*PI);
+arc(430,125,w,h,1.25*PI,2.5*PI);
+arc(170,325,w,h,radians(45),radians(270));
+arc(430,325,w,h,radians(225),radians(450));
+println(PI);
+
+size(600, 450);
+background(#00ffff);
+float x = width/2f;
+float y = height/2f;
+float a = x-50;
+float b = y-50;
+strokeWeight(15);
+stroke(#ff00ff);
+fill(#ffff00);
+ellipseMode(RADIUS);
+ellipse(x,y,a,b);
+line(x-a,y,x+a,y);
+line(x,y-b,x,y+b);
+strokeWeight(45);
+point(x,y);
+point(x-a,y);
+point(x,y-b);
+point(x+a,y);
+point(x,y+b);
+
+size(600,450);
+background(0,255,0);
+int i, n = 9, a = 50;
+float x, w, renk;
+w = ( width - 2f*a ) / ( n - 1 );
+println("w = " + w);
+strokeWeight(0.75*w);
+for( i = 0; i < n; i++ ) {
+  renk = 255f * i / ( n - 1 );
+  stroke(renk,0,0);
+  x = a + w * i;
+  line(x,a,x,height-a);
+}
+
+void setup() {
+  size(600, 450);
+  background(#0000ff);
+  ciz(85,#ff0000);
+  ciz(55,#00ff00);
+  ciz(25,255);
+}
+void ciz(int w, int c) {
+  strokeWeight(w);
+  stroke(c);
+  strokeCap(SQUARE);
+  line(100, 100, 500, 100);
+  strokeCap(ROUND); // Default
+  line(100, 225, 500, 225);
+  strokeCap(PROJECT); 
+  line(100, 350, 500, 350);
+}
+
+void setup() {
+  size(640,450);
+  background(#0000ff);
+  ellipseMode(RADIUS);
+  strokeWeight(5);
+  stroke(0,255,0);
+  fill(255,0,0);
+  cizim(4,5,10);
+}
+void cizim(int m, int n, int k) {
+  int i, j;
+  float x, a = 0.5*width/n;
+  float y, b = 0.5*height/m;
+  for(i = 0; i < n; i++ ) {
+    x = (2*i+1)*a;
+    for(j = 0; j < m; j++) {
+      y = (2*j+1)*b;
+      ellipse(x,y,a-k,b-k);
+      line(x-a+k,y,x+a-k,y);
+      line(x,y-b+k,x,y+b-k);
+    }
+  }
+}
+
+int i, n = 100, r = 25;
+float q, t, x, y, z;
+void setup() {
+  size(600,450);
+  strokeWeight(3);
+  stroke(#ff0000);
+  fill(#00ff00);
+  ellipseMode(RADIUS);
+  z = height/2f;
+}
+void draw() {
+  background(#0000ff);
+  for(i = 0; i < n; i++ ) {
+    t = (float)i / (n-1);
+    x = r + (width-2*r)*t;
+    y = z + (z-r)*sin(q+5*PI*t);
+    ellipse(x,y,r,r);
+  }
+  q += 0.5*PI/frameRate;
+}
+
+void setup() {
+  size(600,450);
+  background(#ffff00);
+  cizim(12, 45, #0000ff);
+}
+void cizim(int n, int d, int c) {
+  float x, y, q, k = 0.85;
+  float a = width/2f;
+  float b = height/2f;
+  strokeWeight(d);
+  stroke(c);
+  point(a,b);
+  for (int i = 0; i < n; i++) {
+    q = 2*PI*i/n;
+    x = a*(1 + k*cos(q));
+    y = b*(1 + k*sin(q));
+    point(x,y);
+  }
+}
+
+int i, n = 900;
+float x, y, a = 90;
+boolean drm;
+void setup() {
+  size(600,450);
+  strokeWeight(5);
+  stroke(255,0,0);
+  fill(0,255,0);
+}
+void draw() {
+  if(i == 0 || (drm && i <= n)) {
+    x = a/2 + (width-a)*i/n;
+    y = a/2 + (height-a)*i/n;    
+    background(0,0,255);
+    ellipse(x,y,a,a);
+    println("Say : " + (i++));
+  }
+}
+void mousePressed() {
+  if(mouseButton == LEFT) drm = !drm;
+  else { i = 0; drm = false; }
+}
+
+int n; float x, y, r;
+void setup() {
+  size(600,450);  
+  background(0);
+  ellipseMode(RADIUS);
+  noStroke();
+  frameRate(5);
+}
+void draw() {
+  if( mousePressed ) {
+    background(0);
+    n = 0;
+  } else {
+    r = random(5,45);
+    x = random(r,width-r);
+    y = random(r,height-r);
+    fill(random(256),random(256),random(256),150);
+    ellipse(x,y,r,r);
+    println("Daire Sayısı : " + (++n));
+  }
+}
+
+int k, a = 75;
+float x, y, v = 3;
+void setup() {
+  size(600,450);
+  strokeWeight(5);
+  stroke(#ff0000);
+  fill(#0000ff);
+}
+void draw() {
+  background(255);
+  rect(x,y,a,a);
+  switch ( k ) {
+    case 0: x += v;
+      if (x > width-a) { x = width-a; k = 1; }
+      break;
+    case 1: y += v;
+      if (y > height-a) { y = height-a; k = 2; }
+      break;
+    case 2: x -= v;
+      if (x < 0) { x = 0; k = 3; }
+      break;
+    case 3: y -= v;
+      if (y < 0) { y = 0; k = 0; }
+      break;
+  }
+}
+
+void setup() {
+  size(600,450);
+  strokeWeight(3);
+}
+void draw() {
+  background(#ffff00);
+  cizim(mouseX,mouseY,width/2,height/2,0,3);
+}
+void cizim(float x,float y,float a,float b,int i,int n) {
+  float c = map(i,0,n,255,100);
+  if(mousePressed) {
+    fill(c,0,0);
+    stroke(0,c,0);
+  } else {
+    fill(0,c,0);
+    stroke(c,0,0);
+  };
+  ellipse(x,y,a,b);
+  if( ++i > n) return;
+  cizim(x-a/4f,y,a/2f,b/2f,i,n);
+  cizim(x+a/4f,y,a/2f,b/2f,i,n);
+}
+
+int i, j, m = 25, n = 600, d = 5;
+float p, q, a, b, x, y;
+void setup() {
+  size(600, 450);
+  stroke(#0000ff);
+  strokeWeight(d);
+  a = (float)width / m;
+  b = height / 2f;
+}
+void draw() {
+  background(#ffff00);
+  for(i = 0; i < m; i++) {
+    x = a*i;
+    p = 2*PI*i/(m-1);
+    y = (b-d)*sin(q-p);
+    line(x,b-y,x+a-d,b+y);
+  }
+  q = 2*PI*j/n;
+  j = (++j) % n;
+}
+
+PShape dino;
+void setup() {
+  size(480, 120);
+  dino = createShape();
+  dino.beginShape();
+  dino.fill(153, 176, 180);
+  dino.vertex(50, 120);
+  dino.vertex(100, 90);
+  dino.vertex(110, 60);
+  dino.vertex(80, 20);
+  dino.vertex(210, 60);
+  dino.vertex(160, 80);
+  dino.vertex(200, 90);
+  dino.vertex(140, 100);
+  dino.vertex(130, 120);
+  dino.endShape();
+}
+void draw() {
+  background(204);
+  translate(mouseX - 120, 0);
+  shape(dino, 0, 0);
+}
+
+float angle = 0;
+void setup() {
+  size(120, 120);
+}
+void draw() {
+  translate(mouseX, mouseY);
+  rotate(angle);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+
+float angle = 0.0;
+float offset = 60;
+float scalar = 2;
+float speed = 0.05;
+void setup() {
+  size(120, 120);
+  fill(0);
+}
+void draw() {
+  float x = offset + cos(angle) * scalar;
+  float y = offset + sin(angle) * scalar;
+  ellipse( x, y, 2, 2);
+  angle += speed;
+  scalar += speed;
+}
+
+void setup() {
+  size(480, 120);
+}
+void draw() {
+  background(176, 204, 226);
+  for (int x = 35; x < width + 70; x += 70) {
+    owl(x, 110);
+  }
+}
+void owl(int x, int y) {
+  pushMatrix();
+  translate(x, y);
+  stroke(138, 138, 125);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Body
+  noStroke();
+  fill(255);
+  ellipse(-17.5, -65, 35, 35); // Left eye dome
+  ellipse(17.5, -65, 35, 35);  // Right eye dome
+  arc(0, -65, 70, 70, 0, PI);  // Chin
+  fill(51, 51, 30);
+  ellipse(-14, -65, 8, 8); // Left eye
+  ellipse(14, -65, 8, 8);  // Right eye
+  quad(0, -58, 4, -51, 0, -44, -4, -51); // Beak
+  popMatrix();
+}
+
+void setup() {
+  size(480, 120);
+}
+void draw() {
+  background(176, 204, 226);
+  randomSeed(0);
+  for (int i = 35; i < width + 40; i += 40) {
+    int gray = int(random(0, 102));
+    float scalar = random(0.25, 1.0);
+    owl(i, 110, gray, scalar);
+  }
+}
+void owl(int x, int y, int g, float s) {
+  pushMatrix();
+  translate(x, y);
+  scale(s); // Set the size
+  stroke(138-g, 138-g, 125-g); // Set the color value
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Body
+  noStroke();
+  fill(255);
+  ellipse(-17.5, -65, 35, 35); // Left eye dome
+  ellipse(17.5, -65, 35, 35);  // Right eye dome
+  arc(0, -65, 70, 70, 0, PI);  // Chin
+  fill(51, 51, 30);
+  ellipse(-14, -65, 8, 8); // Left eye
+  ellipse(14, -65, 8, 8);  // Right eye
+  quad(0, -58, 4, -51, 0, -44, -4, -51); // Beak
+  popMatrix();
+}
+
+Diagonals da, db;  
+void setup() {
+  size(100, 100);
+  // Inputs: x, y, speed, thick, gray
+  da = new Diagonals(0, 80, 1, 2, 0);
+  db = new Diagonals(0, 55, 2, 6, 255);
+}
+void draw() {
+  background(204);
+  da.update();
+  db.update();
+}
+class Diagonals {
+  int x, y, speed, thick, gray;
+  Diagonals(int xpos, int ypos, int s, int t, int g) {
+    x = xpos;
+    y = ypos;
+    speed = s;
+    thick = t;
+    gray = g;
+  }
+  void update() {
+    strokeWeight(thick);
+    stroke(gray);
+    line(x, y, x+20, y-40);
+    line(x+10, y, x+30, y-40);
+    line(x+20, y, x+40, y-40);
+    x = x + speed;
+    if (x > 100) {
+      x = -100;
+    }
+  }
+}
+
+float angle = 0.0;
+float angleDirection = 1;
+float speed = 0.005;
+void setup() {
+  size(120, 120);
+}
+void draw() {
+  background(204);
+  translate(20, 25); // Move to start position
+  rotate(angle);
+  strokeWeight(12);
+  line(0, 0, 40, 0);
+  translate(40, 0);  // Move to next joint
+  rotate(angle * 2.0);
+  strokeWeight(6);
+  line(0, 0, 30, 0);
+  translate(30, 0);  // Move to next joint
+  rotate(angle * 2.5);
+  strokeWeight(3);
+  line(0, 0, 20, 0);
+  angle += speed * angleDirection;
+  if ((angle > QUARTER_PI) || (angle < 0)) {
+    angleDirection = -angleDirection;
+  }
+}
+
+int endY;
+void setup() {
+  size(200, 200);
+  frameRate(5);
+  endY = 0;
+}
+void draw() {
+  background(255);
+  // y goes from 0 to whatever endY is
+  for (int y = 0; y < endY; y += 10) {
+    stroke(0);
+    line(0, y, width, y);
+  }
+  // Increment endY
+  endY += 10;
+  // reset endY back to 0 if it gets to the end
+  if (endY > height) {
+    endY = 0;
+  }
+}
+
+int globalX = 0;
+int globalY = 100;
+int speed = 1;
+void setup() {
+  size(200, 200);
+}
+void draw() {
+  background(255);
+  move();
+  bounce();
+  drawCar(globalX, globalY, 24, color(100));
+}
+void move() {
+  // Change the x location by speed
+  globalX = globalX + speed;
+}
+void bounce() {
+  if ((globalX > width) || (globalX < 0)) {
+    speed = speed * -1;
+  }
+}
+void drawCar(int x, int y, int thesize, color c) {
+  int offset = thesize / 4;
+  rectMode(CENTER);
+  stroke(0);
+  fill(c);
+  rect(x, y, thesize, thesize/2);
+  fill(200);
+  rect(x - offset, y - offset, offset, offset/2);
+  rect(x + offset, y - offset, offset, offset/2);
+  rect(x - offset, y + offset, offset, offset/2);
+  rect(x + offset, y + offset, offset, offset/2);
+}
+
+void setup() {
+  size(100, 100);
+  strokeWeight(4);
+}
+void draw() { 
+  background(204);
+  // If the 'A' key is pressed draw a line
+  if ((keyPressed == true) && (key == 'A')) {
+    line(50, 25, 50, 75);
+  } else {  // Otherwise, draw an ellipse
+    ellipse(50, 50, 50, 50);
+  }
+}
+
+float angle = 0;
+void setup() {
+  size(100, 100);
+  fill(0);
+}
+void draw() {
+  background(204);
+  if (keyPressed == true) {
+    if ((key >= 32) && (key <= 126)) {
+      // If the key is alphanumeric, 
+      // convert its value into an angle
+      angle = map(key, 32, 126, 0, 360);
+    }
+  }
+  arc(50, 50, 66, 66, 0, radians(angle));
+}
+
+int y = 35; 
+void setup() {
+  size(100, 100);
+}
+void draw() { 
+  background(204);
+  line(10, 50, 90, 50);
+  if (key == CODED) { 
+    if (keyCode == UP) { 
+      y = 20;
+    } else if (keyCode == DOWN) { 
+      y = 50;
+    } 
+  } else {
+    y = 35;
+  }
+  rect(25, y, 50, 30);
+}
+
+void setup() {
+  size(100, 100); 
+  strokeWeight(2);
+}
+void draw() {
+  background(204);
+  // Draw more lines as mouseX increases
+  for (int i = 10; i < mouseX; i+=5) {
+    line(i, 10, i, 90);
+  }
+}
+
+int x = 0; 
+void setup() {
+  size(100, 100);
+}
+void draw() {
+  line(x, 20, x, 80);
+  x += 2;
+}
+
+background(255);
+rectMode(CENTER);
+for (int y = 9; y < height; y += 20) {
+  for (int x = 9; x < width; x += 20) {
+    for (int d = 18; d > 0; d -= 4) {
+      rect(x, y, d, d);
+    }
+  }
+}
+
+String lines = "L1 L2 L3"; 
+textSize(12);
+fill(0);
+textLeading(10); 
+text(lines, 10, 15, 30, 100); 
+textLeading(20); 
+text(lines, 40, 15, 30, 100); 
+textLeading(30); 
+text(lines, 70, 15, 30, 100); 
+
+fill(0);
+textSize(12);
+line(50, 0, 50, 100);
+textAlign(LEFT); 
+text("Left", 50, 20); 
+textAlign(RIGHT); 
+text("Right", 50, 40); 
+textAlign(CENTER); 
+text("Center", 50, 80);
+
+float angle = 0.0;    // Current angle
+float speed = 0.05;   // Speed of motion
+float radius = 30.0;  // Range of motion
+float sx = 2.0;
+float sy = 2.0;
+void setup() {
+  size(100, 100);
+  noStroke();
+}
+void draw() {
+  fill(0, 4);
+  rect(0, 0, width, height); 
+  angle += speed;  // Update the angle
+  float sinval = sin(angle);
+  float cosval = cos(angle);
+  // Set the position of the small circle based on new
+  // values from sine and cosine
+  float x = 50 + (cosval * radius);
+  float y = 50 + (sinval * radius);
+  fill(255);
+  ellipse(x, y, 2, 2);  // Draw smaller circle
+  // Set the position of the large circles based on the 
+  // new position of the small circle
+  float x2 = x + cos(angle * sx) * radius/2;
+  float y2 = y + sin(angle * sy) * radius/2;
+  ellipse(x2, y2, 6, 6);  // Draw larger circle
+}
+
+pushMatrix();
+translate(20, 0);
+rect(0, 10, 70, 20);  // Draw at (20, 10)
+pushMatrix();
+translate(30, 0);  
+rect(0, 30, 70, 20);  // Draw at (50, 30)
+popMatrix();
+rect(0, 50, 70, 20);  // Draw at (20, 50)
+popMatrix();
+rect(0, 70, 70, 20);  // Draw at (0, 70)
+
+void setup() { 
+  size(100, 100); 
+  noStroke(); 
+} 
+void draw() { 
+  background(0); 
+  // Limits variable mx between 35 and 65
+  int mx = constrain(mouseX, 35, 65); 
+  // Limits variable my between 40 and 60
+  int my = constrain(mouseY, 40, 60);
+  fill(102); 
+  rect(20, 25, 60, 50); 
+  fill(255);  
+  ellipse(mx, my, 30, 30); 
+}
+
+float offset = 50.0;       // Y offset
+float scaleVal = 35.0;     // Scale value for the wave magnitude
+float angleInc = PI/28.0;  // Increment between the next angle  
+void setup() {
+  size(700, 100);
+  noStroke();
+  fill(0);
+}
+void draw() {
+  background(204);
+  float angle = 0.0;
+  for (int x = 0; x < width; x += 5) {
+    float y1 = offset + (sin(angle) * scaleVal);
+    fill(255);
+    rect(x, y1, 2, 4);
+    float y2 = offset + (cos(angle) * scaleVal);
+    fill(0);
+    rect(x, y2, 2, 4);
+    angle += angleInc;
+  }
+}
+
+size(600,450);
+colorMode(HSB, 100, 100, 100);
+noStroke();
+fill(100, 100, 100);
+rect(100, 100, 90, 90);
+colorMode(RGB, 1.0);
+fill(1, 1, 0.5);
+rect(200, 100, 90, 90);
+colorMode(RGB, 255, 255, 255);
+color rnk = get(120,120);
+println(rnk);
+rnk = get(220,120);
+println(rnk);
+
+float angle = 0.0;
+void setup() {
+  size(100, 100);
+  noStroke();
+}
+void draw() {
+  background(0);
+  fill(204);  // Light gray
+  rect(0, 44, 100, 12);
+  // Position in middle, scale 80%, and rotate
+  translate(width/2, height/2);
+  scale(0.75);
+  rotate(angle);
+  fill(102);
+  beginShape();
+  // Outer shape
+  vertex(-25,-50);
+  vertex( 25,-50);
+  vertex( 25, 50);
+  vertex(-25, 50);
+  // Top hole
+  beginContour();
+  vertex(-15,-30);
+  vertex(-15,-10);
+  vertex( 15,-10);
+  vertex( 15,-30);
+  endContour();
+  // Bottom Hole
+  beginContour();
+  vertex(-15, 10);
+  vertex(-15, 30);
+  vertex( 15, 30);
+  vertex( 15, 10);
+  endContour();
+  endShape();
+  angle += 0.01;
+}
+
+PShape zig;
+void setup() {
+  size(100, 100);
+  zig = createShape();
+  zig.beginShape();
+  zig.fill(0);
+  zig.noStroke();
+  zig.vertex(10, 0);
+  zig.vertex(100, 30);
+  zig.vertex(90, 70);
+  zig.vertex(100, 70);
+  zig.vertex(10, 90);
+  zig.vertex(50, 40);
+  zig.endShape();
+  zig.scale(0.7);
+  zig.translate(-50, -50);
+}
+void draw() {
+  background(204);
+  shape(zig, 50, 50);
+  zig.rotate(0.01);
+}
+
+Egg humpty;  // Declare the object
+void setup() {
+  size(100, 100);
+  // Inputs: x-coordinate, y-coordinate, tilt, height
+  humpty = new Egg(50, 100, PI/32, 80);
+}
+void draw() {
+  background(0);
+  humpty.wobble();
+  humpty.display();
+}
+class Egg {
+  float x, y;    // X-coordinate, y-coordinate
+  float tilt;    // Left and right angle offset
+  float angle;   // Used to define the tilt
+  float scalar;  // Height of the egg
+  // Constructor
+  Egg(int xpos, int ypos, float t, float s) {
+    x = xpos;
+    y = ypos;
+    tilt = t;
+    scalar = s / 100.0;
+  }
+  void wobble() {
+   tilt = cos(angle) / 8;
+   angle += 0.1;
+  }
+  void display() {
+    noStroke();
+    fill(255);
+    pushMatrix();
+    translate(x, y);
+    rotate(tilt);
+    scale(scalar);
+    beginShape();
+    vertex(0, -100);
+    bezierVertex(25, -100, 40, -65, 40, -40);
+    bezierVertex(40, -15, 25, 0, 0, 0);
+    bezierVertex(-25, 0, -40, -15, -40, -40);
+    bezierVertex(-40, -65, -25, -100, 0, -100);
+    endShape(); 
+    popMatrix(); 
+  }
+}
+
+Ball ball;
+Paddle paddle;
+void setup() {
+  size(600, 600);
+  paddle = new Paddle();
+  ball = new Ball();
+  noCursor();
+}
+void draw() {
+  background(0);
+  paddle.update();  // Update paddle
+  paddle.display();  // Draw paddle
+  ball.update();  // Update ball
+  ball.display();  // Draw ball
+  // Set variable to true if shapes are overlapping, false if not
+  boolean collision = hitPaddle(paddle, ball);
+  if (collision == true) {
+    ball.hit(paddle);
+  }
+}
+boolean hitPaddle(Paddle p, Ball b) {
+  float circleDistanceX = abs(b.x - p.x - p.w/2);
+  float circleDistanceY = abs(b.y - p.y - p.h/2);
+  if (circleDistanceX > (p.w/2 + b.radius)) { return false; }
+  if (circleDistanceY > (p.h/2 + b.radius)) { return false; }
+  if (circleDistanceX <= p.w/2) { return true; }
+  if (circleDistanceY <= p.h/2) { return true; }
+  float cornerDistance = pow(circleDistanceX - p.w/2, 2) + pow(circleDistanceY - p.h/2, 2);
+  if (cornerDistance <= pow(b.radius, 2)) {
+    return true; 
+  } else {
+    return false;
+  }
+}
+class Ball {
+  float x;  // X-coordinate of the ball
+  float y;  // Y-coordinate of the ball
+  float diameter = 20.0;  // Diameter of the ball
+  float radius = diameter/2;  // Radius of the ball
+  float speedX = random(3, 5);  // Speed along the x-axis
+  float speedY = random(-2, 2);  // Speed along the y-axis
+  Ball() {
+    x = -radius;
+    y = height/2;
+  }
+  // Change ball position
+  void update() {
+    // Update ball coordinates
+    x = x + speedX;
+    y = y + speedY;
+    // Reset position if ball leaves the screen
+    if (x > width + radius) {
+      x = -radius;
+      y = random(height*0.25, height*0.75);
+      speedX = random(5, 15);
+      speedY = random(-6, 6);
+    }
+    // If ball hits the left edge, change direction of X
+    if (x < radius) {
+      x = radius;
+      speedX = speedX * -1;
+    } 
+    // If ball hits top or bottom, change direction of Y  
+    if (y > height - radius) {
+      y = height - radius;
+      speedY = speedY * -1;
+    } else if (y < radius) {
+      y = radius;
+      speedY = speedY * -1;
+    }
+  }
+  // Draw ball to the display window
+  void display() {
+    fill(255);
+    noStroke();
+    ellipse(x, y, diameter, diameter);
+  }
+  // Change ball direction when paddle is hit
+  // and bump it back to the edge of the paddle
+  void hit(Paddle p) {
+    speedX = speedX * -1;
+    x += speedX;
+  }
+}
+class Paddle {
+  int x;  // X-coordinate of the paddle
+  int y;  // Y-coordinate of the paddle
+  int w = 20;  // Width of the paddle
+  int h = 100;  // Height of the paddle
+  Paddle() {
+    x = width-w*2;
+    y = height/2;
+  }
+  // Change paddle position with cursor
+  void update() {
+    y = mouseY - h/2;
+    y = constrain(y, 0, height-h);
+  }
+  // Draw paddle to the display window
+  void display() {
+    fill(102);
+    noStroke();
+    rect(x, y, w, h);
+  }
+}
+
+float x, y, x2, y2, len = 100;
+void setup() {
+  size(640, 640);
+  stroke(255);
+  noFill();
+}
+void draw() {
+  background(0);
+  translate(width/2, height/2);
+  for (int qi = 0; qi < 360; qi+=30) {
+    x = sin(radians(qi)) * 50;
+    y = cos(radians(qi)) * 50;
+    for(int qj = 0; qj < len; qj+=2){
+      float q = cos(radians(len-qj+frameCount)) * qj;
+      float x2 = sin(radians(qi-q))*(qj*3);
+      float y2 = cos(radians(qi-q))*(qj*3);
+      ellipse(x+x2, y+y2, len-qj, len-qj);
+    }
+  }
+}
+
+int i, n = 7, d = 50;
+float[] x = new float[n];
+float[] y = new float[n];
+void setup() {
+  size(600,450);
+  strokeWeight(20);
+  stroke(255,150);
+}
+void draw() {
+  background(0);
+  dragSegment(0, mouseX, mouseY);
+  for(i = 1; i < n; i++)
+    dragSegment(i, x[i-1], y[i-1]);
+}
+void dragSegment(int i, float a, float b) {
+  float q = atan2(b-y[i],a-x[i]);
+  x[i] = a - d*cos(q);
+  y[i] = b - d*sin(q);
+  pushMatrix();
+  translate(x[i],y[i]);
+  rotate(q);
+  line(0, 0, d, 0);
+  popMatrix();
+}
+
+int i, k, n = 4;
+int[] x, y;
+void setup() {
+  size(600,450);
+  fill(255);
+  x = new int[] { 100, 200, 400, 500 };
+  y = new int[] { 225, 225, 225, 225 };
+}
+void draw() {
+  if(mousePressed) {
+    if (mouseButton == LEFT) {
+      x[i] = mouseX;
+      y[i] = mouseY;
+    }
+  }
+  background(#ffff00);
+  stroke(#0000ff);
+  strokeWeight(5);  
+  bezier(x[0],y[0],x[1],y[1],x[2],y[2],x[3],y[3]);
+  line(x[0],y[0],x[1],y[1]);
+  line(x[2],y[2],x[3],y[3]);
+  strokeWeight(25);
+  for(k = 0; k < n; k++) {
+    if (k == 0) stroke(#ff0000);
+    else if (k == 1) stroke(#00ff00);
+    else if (k == 2) stroke(#ff00ff);
+    else stroke(#00ffff);
+    point(x[k],y[k]);
+  }
+  strokeWeight(15);
+  stroke(255);
+  point(x[i],y[i]);
+}
+void mousePressed() {
+ if (mouseButton == RIGHT) i = (++i) % n;
+}
+
+Snake s0;
+Snake s1;
+void setup() {
+  size(400,200);
+  // Initialize
+  s0 = new Snake(50);
+  s1 = new Snake(25);
+}
+void draw() {
+  background(255);
+  // Update and display
+  s0.update(mouseX-30,mouseY);
+  s0.display();
+  // Update and display
+  s1.update(mouseX+30,mouseY);
+  s1.display();  
+}
+class Snake {
+  // x and y positions
+  int[] xpos;
+  int[] ypos;
+  // The constructor determines the length of the snake
+  Snake(int n) {
+    xpos = new int[n];
+    ypos = new int[n];
+  }
+  void update(int newX, int newY) {
+    // Shift all elements down one spot. 
+    // xpos[0] = xpos[1], xpos[1] = xpos = [2], and so on. Stop at the second to last element.
+    for (int i = 0; i < xpos.length-1; i ++ ) {
+      xpos[i] = xpos[i+1]; 
+      ypos[i] = ypos[i+1];
+    }
+    // Update the last spot in the array with the mouse location.
+    xpos[xpos.length-1] = newX; 
+    ypos[ypos.length-1] = newY;
+  }
+  void display() {
+    // Draw everything
+    for (int i = 0; i < xpos.length; i ++ ) {
+      // Draw an ellipse for each element in the arrays. 
+      // Color and size are tied to the loop's counter: i.
+      stroke(0);
+      fill(255-i*5);
+      ellipse(xpos[i],ypos[i],i,i); 
+    }
+  }
+}
+
+float theta = 0;
+void setup() {
+  size(640, 360);
+}
+void draw() {
+  background(255);
+  stroke(0);
+  // Translate to center of window
+  translate(width/2, height/2);
+  // Loop from 0 to 360 degrees (2*PI radians)
+  for (float i = 0; i < TWO_PI; i += 0.2) {
+    // Push, rotate and draw a line!
+    // The transformation state is saved at the beginning of each cycle through the for loop and restored at the end. 
+    // Try commenting out these lines to see the difference!
+    pushMatrix(); 
+    rotate(theta + i);
+    line(0, 0, 100, 0);
+    // Loop from 0 to 360 degrees (2*PI radians)
+    for (float j = 0; j < TWO_PI; j += 0.5) {
+      // Push, translate, rotate and draw a line!
+      pushMatrix();
+      translate(100, 0);
+      rotate(-theta-j);
+      line(0, 0, 50, 0);
+      // We're done with the inside loop, pop!
+      popMatrix();
+    }
+    // We're done with the outside loop, pop!
+    popMatrix();
+  }
+  // Increment theta
+  theta += 0.01;
+}
+
+float angle = 0.0;
+void setup() {
+  size(200, 200);
+}
+void draw() {
+  background(255);
+  fill(175);
+  stroke(0);
+  translate(width/2, height/2);
+  rotate(angle);
+  line(-75, 0, 75, 0);
+  ellipse(-75, 0, 8, 8);
+  ellipse( 75, 0, 8, 8);
+  angle += 0.05;
+}
+
+Catcher catcher;    // One catcher object
+Timer timer;        // One timer object
+Drop[] drops;       // An array of drop objects
+int totalDrops = 0; // totalDrops
+// A boolean to let us know if the game is over
+boolean gameOver = false;
+// Variables to keep track of score, level, lives left
+int score = 0;      // User's score
+int level = 1;      // What level are we on
+int lives = 10;     // 10 lives per level (10 raindrops can hit the bottom)
+int levelCounter = 0;
+PFont f;
+void setup() {
+  size(640, 360);
+  catcher = new Catcher(32); // Create the catcher with a radius of 32
+  drops = new Drop[50];      // Create 50 spots in the array (each level now just has 25 drops)
+  timer = new Timer(300);    // Create a timer that goes off every 300 milliseconds
+  timer.start();             // Starting the timer
+  f = createFont("Arial", 12, true); // A font to write text on the screen
+}
+void draw() {
+  background(255);
+  // If the game is over
+  if (gameOver) {
+    textFont(f, 48);
+    textAlign(CENTER);
+    fill(0);
+    text("GAME OVER", width/2, height/2);
+  } else {
+    // Set catcher location
+    catcher.setLocation(mouseX, mouseY); 
+    // Display the catcher
+    catcher.display(); 
+    // Check the timer
+    if (timer.isFinished()) {
+      // Deal with raindrops
+      // Initialize one drop
+      if (totalDrops < drops.length) {
+        drops[totalDrops] = new Drop();
+        // Increment totalDrops
+        totalDrops++;
+      }
+      timer.start();
+    }
+    // Move and display all drops
+    for (int i = 0; i < totalDrops; i++ ) {
+      if (!drops[i].finished) {
+        drops[i].move();
+        drops[i].display();
+        if (drops[i].reachedBottom()) {
+          levelCounter++;
+          drops[i].finished(); 
+          // If the drop reaches the bottom a live is lost
+          lives--;
+          // If lives reach 0 the game is over
+          if (lives <= 0) {
+            gameOver = true;
+          }
+        } 
+        // Everytime you catch a drop, the score goes up
+        if (catcher.intersect(drops[i])) {
+          drops[i].finished();
+          levelCounter++;
+          score++;
+        }
+      }
+    }
+    // If all the drops are done, that leve is over!
+    if (levelCounter >= drops.length) {
+      // Go up a level
+      level++;
+      // Reset all game elements
+      levelCounter = 0;
+      lives = 10;
+      timer.setTime(constrain(300-level*25, 0, 300));
+      totalDrops = 0;
+    }
+    // Display number of lives left
+    textFont(f, 14);
+    fill(0);
+    text("Lives left: " + lives, 10, 20);
+    rect(10, 24, lives*10, 10);
+    text("Level: " + level, 300, 20);
+    text("Score: " + score, 300, 40);
+  }
+}
+class Catcher {
+  float r;    // radius
+  color col;  // color
+  float x, y; // location
+  Catcher(float tempR) {
+    r = tempR;
+    col = color(50, 10, 10, 150);
+    x = 0;
+    y = 0;
+  }
+  void setLocation(float tempX, float tempY) {
+    x = tempX;
+    y = tempY;
+  }
+  void display() {
+    stroke(0);
+    fill(col);
+    ellipse(x, y, r*2, r*2);
+  }
+  // A function that returns true or false based on
+  // if the catcher intersects a raindrop
+  boolean intersect(Drop d) {
+    // Calculate distance
+    float distance = dist(x, y, d.x, d.y); 
+    // Compare distance to sum of radii
+    if (distance < r + d.r) { 
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+class Drop {
+  float x, y;   // Variables for location of raindrop
+  float speed;  // Speed of raindrop
+  color c;
+  float r;      // Radius of raindrop
+  // New variable to keep track of whether drop is still being used
+  boolean finished = false;
+  Drop() {
+    r = 8;                   // All raindrops are the same size
+    x = random(width);       // Start with a random x location
+    y = -r*4;                // Start a little above the window
+    speed = random(2, 5);    // Pick a random speed
+    c = color(50, 100, 150); // Color
+  }
+  // Move the raindrop down
+  void move() {
+    // Increment by speed
+    y += speed;
+  }
+  // Check if it hits the bottom
+  boolean reachedBottom() {
+    // If we go a little beyond the bottom
+    if (y > height + r*4) { 
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // Display the raindrop
+  void display() {
+    // Display the drop
+    fill(c);
+    noStroke();
+    for (int i = 2; i < r; i++) {
+      ellipse(x, y - r*4 + i*4, i*2, i*2);
+    }
+  }
+  // If the drop is caught
+  void finished() {
+    finished = true;
+  }
+}
+class Timer {
+  int savedTime; // When Timer started
+  int totalTime; // How long Timer should last
+  Timer(int tempTotalTime) {
+    totalTime = tempTotalTime;
+  }
+  void setTime(int t) {
+    totalTime = t;
+  }
+  // Starting the timer
+  void start() {
+    // When the timer starts it stores the current time in milliseconds.
+    savedTime = millis();
+  }
+  // The function isFinished() returns true if 5,000 ms have passed. 
+  // The work of the timer is farmed out to this method.
+  boolean isFinished() { 
+    // Check how much time has passed
+    int passedTime = millis()- savedTime;
+    if (passedTime > totalTime) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+ String[] headlines = {
+  "Processing downloads break downloading record.", 
+  "New study shows computer programming lowers cholesterol.",
+};
+PFont f; // Global font variable
+float x; // Horizontal location
+int index = 0;
+void setup() {
+  size(640, 360);
+  f = createFont( "Arial", 16);
+  // Initialize headline offscreen
+  x = width;
+}
+void draw() {
+  background(255);
+  fill(0);
+  // Display headline at x location
+  textFont(f, 16);
+  textAlign (LEFT);
+  // A specific String from the array is displayed according to the value of the "index" variable.
+  text(headlines[index], x, height-20); 
+  // Decrement x
+  x = x - 3;
+  // If x is less than the negative width, then it is off the screen
+  // textWidth() is used to calculate the width of the current String.
+  float w = textWidth(headlines[index]); 
+  if (x < -w) {
+    x = width;
+    // index is incremented when the current String has left the screen in order to display a new String.
+    index = (index + 1) % headlines.length;
+  }
+}
+
+ArrayList<PVector> history = new ArrayList<PVector>();
+void setup() {
+  size(640, 360);
+}
+void draw() {
+  background(255);
+  // New mouse position
+  PVector mouse = new PVector(mouseX, mouseY);
+  history.add(mouse);
+  // Remove old ones
+  if (history.size() > 50) {
+    history.remove(0);
+  }
+  // Draw everything
+  for (int i = 0; i < history.size (); i++ ) {
+    // Draw an ellipse for each element in the ArrayList. 
+    // Color and size are tied to the loop's counter: i.
+    noStroke();
+    fill(255-i*5);
+    // Grab the current PVector
+    PVector position = history.get(i);
+    // Look at the x and y of each PVector
+    ellipse(position.x, position.y, i, i);
+  }
+}
+
+Mover[] movers = new Mover[20];
+void setup() {
+  size(640,360);
+  for (int i = 0; i < movers.length; i++) {
+    movers[i] = new Mover(); 
+  }
+}
+void draw() {
+  background(255);
+  for (int i = 0; i < movers.length; i++) {
+    movers[i].update();
+    movers[i].display(); 
+  }
+}
+class Mover {
+  // The Mover tracks location, velocity, and acceleration 
+  PVector location;
+  PVector velocity;
+  PVector acceleration;
+  // The Mover's maximum speed
+  float topspeed;
+  Mover() {
+    // Start in the center
+    location = new PVector(random(width),random(height));
+    velocity = new PVector(0,0);
+    topspeed = 5;
+  }
+  void update() {
+    // Compute a vector that points from location to mouse
+    PVector mouse = new PVector(mouseX,mouseY);
+    acceleration = PVector.sub(mouse,location);
+    // Set magnitude of acceleration
+    //acceleration.setMag(0.2);
+    acceleration.normalize();
+    acceleration.mult(0.2);
+    // Velocity changes according to acceleration
+    velocity.add(acceleration);
+    // Limit the velocity by topspeed
+    velocity.limit(topspeed);
+    // Location changes by velocity
+    location.add(velocity);
+  }
+  void display() {
+    stroke(0);
+    strokeWeight(2);
+    fill(127,200);
+    ellipse(location.x,location.y,48,48);
+  }
+}
+
+int m, n, M = 100, N = 1000, R = 120;
+float x, y, z, q, qn, r;
+void setup() {
+  size(500,500);
+  fill(255,0,0);
+  stroke(0,255,0);
+  strokeWeight(9);
+}
+void draw() {
+  background(0,0,255);
+  qn = PI*n/N;
+  z = sin(qn);
+  translate(width/2f,height/2f);
+  rotate(qn);
+  beginShape();
+  for(m = 0; m < M; m++) {
+    q = 2*m*PI/M;
+    r = R*(1 + z - z*sq(cos(q)+sin(q)));
+    x = r*cos(q);
+    y = r*sin(q);
+    vertex(x,y);
+  }
+  endShape(CLOSE);
+  n = (++n) % N;
+}
+
+float x, y, q, d = 150, a = 25;
+void setup() {
+  size(600,450);
+  strokeWeight(a);
+}
+void draw() {
+  background(#0000ff);
+  if(mousePressed)
+    stroke(#ff0000,150);
+  else stroke(#00ff00,150);
+  q = atan2(mouseY-y,mouseX-x);
+  x = mouseX-d*cos(q);
+  y = mouseY-d*sin(q);
+  ellipse(x,y,a,a);
+  ellipse(mouseX,mouseY,a,a);
+  line(x,y,mouseX,mouseY);
+}
+
+void setup() {
+  size(600, 450);
+}
+void draw() {  
+  int x = constrain(mouseX, 0, 500);
+  int y = constrain(mouseY, 0, 400);
+  loadPixels();
+  pixels[y*width + x] = color(0);
+  updatePixels();
+}
+
+int skor;
+int balonBuyuklugu = 30;
+  boolean ates = false; 
+ int oyunBitti = 0; 
+  int getRandomX() 
+  {
+    return int(random(600));
+  }  
+  int[] balonx = { getRandomX(), getRandomX(), getRandomX(), getRandomX(), getRandomX() };
+  int[] balony = { 0, 0, 0, 0, 0 };  
+  void setup()
+  { size (900, 500);
+    smooth ();
+    noCursor();
+  }  
+  void draw()
+  {
+   //oyon stili   
+   background (0,00,255);
+    fill(255);
+    stroke (0,255,255);
+    triangle(mouseX-8, 480, mouseX+8, 480, mouseX, 565);
+    // skor ekranı
+    fill(255);
+    text(skor, 20,20);
+    if(ates)
+    {
+      cannon(mouseX);
+      ates = false;
+    }  
+     dusenBalon();
+     oyunBitti();  
+  } 
+  //oyun oynama alanı  
+  void mousePressed()
+  {
+    ates = true;
+  }  
+  void dusenBalon()
+  {  
+    stroke(11, 5, 55); 
+    fill (0, 255, 0); 
+    
+    for (int i=0; i<5; i++)
+    {
+      ellipse(balonx[i], balony[i]++, balonBuyuklugu, balonBuyuklugu);
+    }
+  }  
+  void cannon(int mermiX)
+  {
+    boolean vurus = false;
+    for (int i = 0; i < 5; i++)
+    {
+      if((mermiX >= (balonx[i]-balonBuyuklugu/2)) && (mermiX <= (balonx[i]+balonBuyuklugu/2))) {
+        vurus = true;
+        line(mouseX, 565, mouseX, balony[i]);
+        ellipse(balonx[i], balony[i],
+                balonBuyuklugu+25, balonBuyuklugu+25);
+        balonx[i] = getRandomX();
+        balony[i] = 0;
+//  skor güncelle
+        skor++;
+      }    
+    }  
+    if(vurus == false)
+    {
+      line(mouseX, 565, mouseX, 0);
+    }  
+  }  
+  void oyunBitti()
+  {
+    for (int i=0; i< 5; i++)
+    {
+      if(balony[i]==530)
+      {    
+        fill(color(255,0,0));
+        fill(255, 0, 0);
+        textAlign(CENTER);
+        text("OYUN BİTTİ", width/2, height/2);
+        text("Patlatılan balon sayısı : "+ skor, width/2, height/2 + 50);      
+     noLoop();  
+       }
+      }
+}
+
+int numBlobs;
+blob[] blobs;
+color[] colour;
+float bRadius = 100;
+int numVertices; 
+float[][] xBlobVertices, yBlobVertices; //all the vertices used by a blob
+float[] xShared, yShared; //vertices shared by blobs (one for each blob)
+int numUnshared;
+float[][] xUnshared, yUnshared; //vertices not shared
+float moveMin = -0.5;
+float moveMax = 0.5;
+void setup() {
+  size(500, 500);
+  smooth();
+  noStroke();
+  
+  createInitialValues();
+}
+void createInitialValues() {
+  background(255);  
+  numBlobs = (int)random(2, 10);
+  numVertices = (int)random(3, 10); //shapes must have at least 3 vertices
+  numUnshared = numVertices - 3; // unshared vertices (total - 2 shared - centre)  
+  blobs = new blob[numBlobs];
+  colour = new color[numBlobs];  
+  xShared = new float[numBlobs];
+  yShared = new float[numBlobs];  
+  xUnshared = new float[numBlobs][numUnshared];
+  yUnshared = new float[numBlobs][numUnshared]; 
+  float angle = TWO_PI / (numBlobs * 2);
+  float angleInc = random(HALF_PI); //some random initial rotation
+  //find shortRadius (length from blob centres to unshared vertices)
+  float dx = bRadius * (cos(2 * angle) - cos(angle));
+  float dy = bRadius * (sin(2 * angle) - sin(angle));
+  float shortRadius = sqrt(dx*dx + dy*dy);
+  for(int i = 0; i < numBlobs; i++){
+    colour[i] = color(random(255), random(255), random(255), 10);
+    //shared vertices are evenly spaced around the origin
+    float beta = (2 * i * angle) + angleInc; //angles to shared vertices
+    xShared[i] = bRadius * cos(beta);
+    yShared[i] = bRadius * sin(beta);
+    for(int j = 0; j < numUnshared; j++){
+      float gamma = ((2 * i + 1) * angle) + angleInc; //angles to blob centres
+      //spread out from each blob centre are the unshared vertices
+      float sectorPart = (PI + angle) / (numUnshared + 1);
+      float initialAngle = gamma - sectorPart * (numUnshared - 1) / 2.0;
+      float delta = initialAngle + j * sectorPart;
+      xUnshared[i][j] = bRadius * cos(gamma) + shortRadius * cos(delta);
+      yUnshared[i][j] = bRadius * sin(gamma) + shortRadius * sin(delta);
+    }
+  }
+}
+void draw(){
+  fill(255, 1);
+  rect(0, 0, width, height);  
+  xBlobVertices = new float[numBlobs][numVertices];
+  yBlobVertices = new float[numBlobs][numVertices];
+  //each blob needs numVertices vertices
+  //the origin
+  //the [i]th shared vertex
+  //the numUnshared respective unshared vertices
+  //the (i+1)th shared vertex
+  for(int i = 0; i < numBlobs; i++){
+    xBlobVertices[i][0] = 0;
+    yBlobVertices[i][0] = 0;
+    xBlobVertices[i][1] = xShared[i];
+    yBlobVertices[i][1] = yShared[i];    
+    for(int j = 0; j < numUnshared; j++){
+      xBlobVertices[i][j + 2] = xUnshared[i][j];
+      yBlobVertices[i][j + 2] = yUnshared[i][j];
+    }    
+    xBlobVertices[i][numVertices - 1] = xShared[(i + 1) % numBlobs];
+    yBlobVertices[i][numVertices - 1] = yShared[(i + 1) % numBlobs];
+  }
+  for(int b = 0; b < numBlobs; b++)
+  {
+    blobs[b] = new blob(xBlobVertices[b], yBlobVertices[b], colour[b]);
+  }
+  translate(width / 2, height / 2);
+  for(int b = 0; b < numBlobs; b++)
+  {
+    blobs[b].display();
+  }  
+  //jiggle all the vertices except the centre one
+  for(int i = 0; i < numBlobs; i++)
+  {
+    xShared[i] += random(moveMin, moveMax);
+    yShared[i] += random(moveMin, moveMax);
+    for(int j = 0; j < numUnshared; j++)
+    {
+      xUnshared[i][j] += random(moveMin, moveMax);
+      yUnshared[i][j] += random(moveMin, moveMax);
+    }
+  }
+}
+void mousePressed()
+{
+  createInitialValues();
+}
+class blob //a shape with rounded corners
+{
+  float[] xpos, ypos; //vertices
+  color colour;
+  float[] xoffcw, yoffcw; //"clockwise" offsets from vertices
+  int n;
+  int offset = 3; //fraction of each end of line converted to rounded corners  
+  blob(float[] xpos, float[] ypos, color colour)
+  {
+    this.xpos = xpos;
+    this.ypos = ypos;
+    this.colour = colour;
+    init();
+  }  
+  void init()
+  {
+    noStroke();
+    n = xpos.length;
+    xoffcw = new float[n];
+    yoffcw = new float[n];
+  }  
+  void display()
+  {
+    for(int i = 0; i < n; i++)
+    {
+      float dx = xpos[i] - xpos[(i + 1) % n];
+      float dy = ypos[i] - ypos[(i + 1) % n];
+      xoffcw[i] = xpos[i] - dx / offset;
+      yoffcw[i] = ypos[i] - dy / offset;
+    }    
+    fill(colour);
+    beginShape();
+    vertex(xoffcw[n - 1], yoffcw[n - 1]);
+    for(int i = 0; i < n; i++)
+    {
+      int j = (i + n - 1) % n;
+      bezierVertex(xpos[i], ypos[i], xpos[i], ypos[i], xoffcw[i], yoffcw[i]);
+    }
+    endShape();
+  }
+}
+
+int[][] b = new int[4][4];
+int pad = 20, bs = 100, len = pad*(b.length+1)+bs*b.length, score = 0, dead = 1;
+void setup() {
+  size(500, 500); //size(len, len);
+  restart();
+  textFont(createFont("Courier", 40));
+}
+void restart() {
+  b = new int[4][4];
+  spawn();
+  score = dead = 0;
+}
+void spawn() {
+  ArrayList<Integer> xs = new ArrayList<Integer>(), ys = new ArrayList<Integer>();
+  for (int j = 0 ; j < b.length; j++) for (int i = 0 ; i < b[j].length; i++) if (b[j][i]==0) {
+    xs.add(i);
+    ys.add(j);
+  }
+  int rnd = (int)random(0, xs.size()), y = ys.get(rnd), x = xs.get(rnd);
+  b[y][x] = random(0, 1) < .9 ? 2 : 4;
+}
+void draw() {
+  background(255);
+  noStroke();
+  rectt(0,0,width,height,10,color(150));
+  for (int j = 0 ; j < b.length; j++) 
+    for (int i = 0 ; i < b[j].length; i++) {
+      fill(200);
+      rect(pad+(pad+bs)*i, pad+(pad+bs)*j, bs, bs, 5);
+    }
+  for (int j = 0 ; j < b.length; j++) 
+    for (int i = 0 ; i < b[j].length; i++) {
+      float x = pad+(pad+bs)*i, y=pad+(pad+bs)*j;
+      if (b[j][i] > 0) {
+        float p = log(b[j][i])/log(2);
+        rectt(x, y, bs, bs, 5, color(255-p*255/11, p*255/11, 0));
+        textt(""+b[j][i], x, y + 22, bs, bs, color(0), 40, CENTER);
+      }
+    }
+  textt("score: "+score,10,5,100,50,color(0),10.0, LEFT);
+  if(dead>0) { 
+    rectt(0,0,width,height,0,color(255,100)); 
+    textt("Gameover! Click to restart", 0,height/2,width,50,color(0),30,CENTER); 
+    if(mousePressed) restart(); 
+  }
+}
+void rectt(float x, float y, float w, float h, float r, color c) { fill(c); rect(x,y,w,h,r);  }
+void textt(String t, float x, float y, float w, float h, color c, float s, int align) {
+  fill(c); textAlign(align); textSize(s); text(t,x,y,w,h);  }
+void keyPressed() {
+  if (dead == 0) {
+    int dy=keyCode==UP ? -1 : (keyCode==DOWN ? 1 : 0), dx=keyCode==LEFT ? -1 : (keyCode==RIGHT ? 1 : 0);
+    int[][] newb = go(dy, dx, true);
+    if (newb != null) {
+      b = newb;
+      spawn();
+    }
+    if (gameover()) dead = 1;
+  }
+}
+boolean gameover() {
+  int[] dx = {1, -1, 0, 0}, dy = {0, 0, 1, -1};
+  boolean out = true;
+  for (int i = 0 ; i < 4; i++) if (go(dy[i], dx[i], false) != null) out = false;
+  return out;
+}
+int[][] go(int dy, int dx, boolean updatescore) {
+  int[][] bak = new int[4][4];
+  for (int j = 0 ; j < 4; j++) for (int i = 0 ; i < 4; i++) bak[j][i] = b[j][i];
+  boolean moved = false; 
+  if (dx != 0 || dy != 0) {
+    int d =  dx != 0 ? dx : dy;
+    for (int perp = 0; perp < b.length; perp++) 
+      for (int tang = (d > 0 ? b.length - 2 : 1); tang != (d > 0 ? -1 : b.length); tang-=d) {
+      int y = dx != 0 ? perp : tang, x = dx != 0 ? tang : perp, ty = y, tx = x;
+      if (bak[y][x]==0) continue;
+      for (int i=(dx != 0 ? x : y)+d; i!= (d > 0 ? b.length : -1); i+=d) {
+        int r = dx != 0 ? y : i, c = dx != 0 ? i : x;
+        if (bak[r][c] != 0 && bak[r][c] != bak[y][x]) break;
+        if (dx != 0) tx = i; 
+        else ty = i;
+      }
+      if ( (dx != 0 && tx == x) || (dy != 0 && ty == y)) continue;
+      else if (bak[ty][tx]==bak[y][x]) {
+        bak[ty][tx] *= 2;
+        if(updatescore) score += bak[ty][tx];
+        moved = true;
+      }
+      else if ( (dx != 0 && tx != x) || (dy != 0 && ty != y)) {
+        bak[ty][tx] = bak[y][x];
+        moved = true;
+      }
+      if (moved) bak[y][x] = 0;
+    }
+  }
+  return moved ? bak : null;
+}
+
+int hora, minuto, segundo;
+boolean zoomedIn = true;
+float zoom = 7;
+void setup() {
+    size(500, 500);
+    smooth();
+    stroke(255);
+    noFill();
+} 
+void draw() {
+    background(0); 
+    if (zoomedIn) {
+        if (zoom < 7) zoom++;
+        translate(448, 245);
+        scale(zoom);
+        translate(-448, -245);
+    }
+    else {
+        if (zoom > 1) zoom--;
+        translate(448, 245);
+        scale(zoom);
+        translate(-448, -245);
+    } 
+    // Hours
+    pushMatrix();
+    translate(width/1.5, height/2);
+    drawDisk(0, 23, 60, hour());
+    popMatrix(); 
+    // Minutes
+    pushMatrix();
+    translate(width/1.5-70, height/2);
+    drawDisk(0, 59, 150, minute());
+    popMatrix(); 
+    // Seconds
+    pushMatrix();
+    translate(width/1.5-70, height/2);
+    drawDisk(0, 59, 170, second());
+    popMatrix(); 
+    noFill();
+    rect(390, 235, 60, 20);
+    fill(255, 0, 0);
+    text(":", 408, 249);
+    text(":", 428, 249);
+} 
+void drawDisk(int start, int end, int offset, int selected) {
+    rotate(radians((360/(end-start+1)) * (0-selected))); 
+    for (int i = start; i <= end; i++) {
+        if (i != 0) rotate(radians(360/(end-start+1)));
+        if (i == selected)
+            fill(255, 0, 0);
+        else
+            fill(36 * (7-zoom));
+ 
+        text(nf(i, 2), offset, 0);
+    }
+} 
+void mouseClicked() {
+    zoomedIn = !zoomedIn;
+}
+
+int numRows = 30;
+int numColumns = 30;
+int gridSpacing = 20;
+int counter = 0;
+int offsetX, offsetY;
+shapeClass sClass;
+String shapeType = "RECTANGLE";
+String shapeFill = "FILL";
+float newX, newY;
+color[] colours;
+float[] sizes;
+float[] distances;
+float shapeScale = 1;
+float angle = 0;
+void setup()
+{
+  size(600, 600);
+  background(255, 255, 255);
+  smooth();
+  colorMode(RGB);  
+  //  frameRate(1);
+  colours = new color[numRows*numColumns];
+  sizes = new float[numRows*numColumns];
+  distances = new float[numRows*numColumns];
+  for(int r = 0; r < numRows; r++)
+  {
+    for(int c = 0; c < numColumns; c++)
+    {
+      colours[counter] = color(random(128) + 128, random(128) + 128, random(128) + 128);
+      sizes[counter] = random(10) + 10;
+      distances[counter] = random(20) + 80;
+      counter++;
+    }
+  }
+  offsetX = (width - (numRows * gridSpacing)) / 2 + gridSpacing / 2;
+  offsetY = (height - (numColumns * gridSpacing)) / 2 + gridSpacing / 2;
+}
+void draw()
+{
+  fill(241, 237, 233, 128);
+  noStroke();
+  rect(0, 0, width, height);  
+  counter = 0;  
+  for(int r = 0; r < numRows; r++)
+  {
+    for(int c = 0; c < numColumns; c++)
+    {
+      angle = 0;
+      float shapeSize = 20;
+      float newX = offsetX + (r * gridSpacing);
+      float newY = offsetY + (c * gridSpacing);
+      float dx = mouseX - newX;
+      float dy = mouseY - newY;
+      float dt = sqrt(dx*dx + dy*dy);
+      if(dt < distances[counter])      {
+        angle = atan2(dy, dx);
+        newX -= cos(angle) * (distances[counter] - dt)/2;
+        newY -= sin(angle) * (distances[counter] - dt)/2;
+      }      
+      sClass = new shapeClass(shapeType, sizes[counter], sizes[counter], colours[counter], shapeFill);
+      pushMatrix();
+      translate(newX, newY);
+      sClass.display();
+      popMatrix();
+      counter++;
+    }
+  }
+}
+//multi shape class
+class shapeClass
+{
+  String shapeType;
+  float shapeWidth;
+  float shapeHeight;
+  color colour;
+  String shapeFill;  
+  shapeClass(String shapeType, float shapeWidth, float shapeHeight, color colour, String shapeFill) 
+  {
+    this.shapeType = shapeType;
+    this.shapeWidth = shapeWidth;
+    this.shapeHeight = shapeHeight;
+    this.colour = colour;
+    this.shapeFill = shapeFill;
+  }  
+  void display()
+  {
+    smooth();
+    if(shapeFill.equals("FILL"))
+    {
+      noStroke();
+      fill(colour);
+    }
+    else 
+    {
+      strokeWeight(abs(shapeWidth / 3));
+      stroke(colour);
+      noFill();
+    }    
+    if(shapeType.equals("FLOWER"))
+    {
+      PVector vertex0 = new PVector(cos(0)*shapeWidth, sin(0)*shapeHeight);
+      PVector vertex1 = new PVector(cos(2 * PI / 5)*shapeWidth, sin(2 * PI / 5)*shapeHeight); 
+      PVector vertex2 = new PVector(cos(4 * PI / 5)*shapeWidth, sin(4 * PI / 5)*shapeHeight); 
+      PVector vertex3 = new PVector(cos(6 * PI / 5)*shapeWidth, sin(6 * PI / 5)*shapeHeight);
+      PVector vertex4 = new PVector(cos(8 * PI / 5)*shapeWidth, sin(8 * PI / 5)*shapeHeight);
+      beginShape();
+      vertex(0, 0);
+      bezierVertex(vertex0.x, vertex0.y, vertex1.x, vertex1.y, 0, 0);
+      bezierVertex(vertex1.x, vertex1.y, vertex2.x, vertex2.y, 0, 0);
+      bezierVertex(vertex2.x, vertex2.y, vertex3.x, vertex3.y, 0, 0);
+      bezierVertex(vertex3.x, vertex3.y, vertex4.x, vertex4.y, 0, 0);
+      bezierVertex(vertex4.x, vertex4.y, vertex0.x, vertex0.y, 0, 0);
+      endShape();
+    }
+    else if(shapeType.equals("RECTANGLE"))
+    {
+//      rectMode(CENTER);
+//      rect(0, 0, shapeWidth, shapeHeight);
+      rect(-shapeWidth/2, -shapeHeight/2, shapeWidth, shapeHeight);
+    }
+    else if(shapeType.equals("ELLIPSE"))
+    {
+//      ellipseMode(CENTER);
+//      ellipse(0, 0, shapeWidth, shapeHeight);      
+      ellipse(-shapeWidth/2, -shapeHeight/2, shapeWidth, shapeHeight);
+    }
+    else //circle
+    {
+//      ellipseMode(CENTER);
+//      ellipse(0, 0, shapeWidth, shapeWidth);
+      ellipse(-shapeWidth/2, -shapeHeight/2, shapeWidth, shapeHeight);
+    }    
+  }
+}
+
+float x = 300;
+float y = 300;
+float dx = 3;
+float dy = -5;
+int t;
+int count=0;
+int points=0;
+float heightbounce=600;
+// seviye belirtmek için
+boolean[][] inside=new boolean[1][11]; 
+void setup() {
+  size(600,600);
+  frameRate(60);
+  smooth();
+  PFont font;
+  font = loadFont("Consolas-48.vlw");
+  textFont(font);
+}
+void draw() {
+  // t=0 da yeni seviye başlıyacak
+  if(t==0) {
+    background(0);
+    stroke(255); 
+    if (count<120) {
+      fill(255);
+      textAlign(CENTER);
+      text("seviye " + inside.length, 300, 500);
+    } 
+    //hareket noktalarını çiziyoruz
+    strokeWeight(10);
+    point(x,y);
+    strokeWeight(1); 
+    randomSeed(1);
+    // kutuları yok ediyoruz
+    for (int j=0;j<inside.length;j++) {
+      for (int k=0;k<inside[0].length;k++) {
+        // çevreleri ve hareket noktası arasındaki mesafe
+        float dx2=50+50*k-x;
+        float dy2=50+50*j-y;
+        float dis2=sqrt(pow(dx2,2)+pow(dy2,2));
+         
+        // eğer dışarıda daire çizmek isterse engelliyoruz
+        if (dis2>=25. && inside[j][k]==false) {
+          fill(255,random(255));
+          ellipse(50+50*k,50+50*j,50,50);
+        }
+        // Hareketli nokta içinde daire olup olmadığını geldiği yönden kontrolediyoruz
+        else if (dx2<=(dis2*cos(PI/4))&& dy2<=-(dis2*sin(PI/4)) && inside[j][k]==false) {
+          dy*=-1;
+          inside[j][k]=true;
+          points++;
+        }
+        else if (dx2<=(dis2*cos(PI/4)) && dy2>=(dis2*sin(PI/4)) && inside[j][k]==false) {
+          dy*=-1;
+          inside[j][k]=true;
+          points++;
+        }
+        else if (dy2<=(dis2*sin(PI/4)) && dx2<=-(dis2*cos(PI/4)) && inside[j][k]==false) {
+          dx*=-1;
+          inside[j][k]=true;
+          points++;
+        }
+        else if (dy2<=(dis2*sin(PI/4)) && dx2>=(dis2*cos(PI/4)) && inside[j][k]==false) {
+          dx*=-1;
+          inside[j][k]=true;
+          points++;
+        }
+      }
+    } 
+    // fare y pozisyonunda top zıplama
+      heightbounce=mouseY; 
+    //Üzerinde top sıçrayan levha tanımı
+    float barsize=75.;
+    strokeWeight(3);
+    line(mouseX-barsize,heightbounce,mouseX+barsize,heightbounce);
+    strokeWeight(1); 
+    // topun vuruşuna göre hareket noktasını belirliyoruz
+    if (x>=width || x<=0) {
+      dx*=-1;
+    }
+     if (y<=0) {
+      dy*=-1;
+    }
+    // topun vuruşuna göre nereye gideceğini ayarladık
+    if (y>=heightbounce && y<heightbounce+10) {
+      //sol bölümden soldan sola doğru yatay hareket
+      if (x>(mouseX-barsize) && x< (mouseX-(1./3)*barsize) && dx>0 && dy>0) {
+        dy*=-0.95;
+        dx*=-1.05;
+      }
+      //sol bölümden sağdan sola yatay hareket
+      else if (x>(mouseX-barsize) && x< (mouseX-(1./3)*barsize) && dx<0 && dy>0) {
+        dy*=-0.95;
+        dx*=1.05;
+      }
+      //sağ bölümden soldan sağa hareket
+      else if (x>(mouseX+(1./3)*barsize) && x< (mouseX+barsize) && dx>0 && dy>0) {
+        dy*=-0.95;
+        dx*=1.05;
+      }
+      //sağ bölümden sağdan sağa hareket
+      else if (x>(mouseX+(1./3)*barsize) && x< (mouseX+barsize) && dx<0 && dy>0) {
+        dy*=-0.95;
+        dx*=-1.05;
+      }
+      //top ortadan gelirse dikey hareket
+      else if (x>(mouseX-(1./3)*barsize) && x< (mouseX+(1./3)*barsize) && dy>0) {
+        dy*=-1.05;
+        dx*=0.95;
+      }
+    } 
+    //gelen noktayı yazıyoruz
+    textAlign(RIGHT);
+    fill(255);
+    text(points, 550, 550);
+ 
+    //oyun bitirme ayarlamaları
+    if (y>height) {
+      t=1;
+      fill(255);
+      textAlign(CENTER);
+      text("kaybettin", 300, 300);
+      text("devam etmek icin tikla", 300, 400);
+      text("yada space tusuna bas\n bastan basla", 300, 500);
+    } 
+    //oyun sonu ayarlamaları
+    if (checkinside()) {
+      t=2;
+      fill(255);
+      textAlign(CENTER);
+      text("tebrikler :)", 300, 300);
+      text("bir ust seviye icin tikla", 300, 400);
+    }
+    x=x+dx;
+    y=y+dy; 
+    count++;
+  }   
+  // eğer oyun biterse
+  else if(t==1) { 
+    x = 300;
+    y = 300;
+    dx = 3;
+    dy = -5;
+    count=0;
+    points=0;
+    if(mousePressed==true) {
+      t=0;
+      inside=new boolean[inside.length][inside[0].length];
+    }
+    if(keyPressed) {
+      if (key == ' ') {
+        t=0;
+        inside=new boolean[1][11];
+      }
+    }
+  }   
+  // eğer üst seviyeye geçilirse
+  else {
+    x = 300;
+    y = 300;
+    dx = 3;
+    dy = -5;
+    count=0;
+    if(mousePressed==true) {
+      t=0;
+      inside=new boolean[inside.length+1][inside[0].length];
+    }
+  }
+}
+boolean checkinside() {
+  for (int j=0;j<inside.length;j++) {
+    for (int k=0;k<inside[0].length;k++) {
+      if (inside[j][k] == false) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+int num = 1;  //ilk baştaki top sayısı
+int speed = 1; //hız
+int d = 20; 
+int[] x = new int[100];   //100 elemanlı x dizisi oluşturduk.
+int[] y = new int[100];   //100 elemanlı y dizisi oluşturduk.
+int eggx = 100;           // sabit olan topun x koordinatını gosteriyor 
+int eggy = 200;           // sabit olan topun y koordinatını gosteriyor 
+void setup() {
+  size (800, 600); 
+  smooth();                         //ortamın puruzsuz olmasını sağlıyoruz
+  ellipseMode (CENTER);             //elipsi ortalattık
+  x[0] = 20* int (random (1, 39));  //x dizisine rast gele degerler atadık (hareket eden topun x koordınatını rast gele atıyor)
+  y[0] = 20* int (random (1, 39));  //y dizisine rast gele degerler atadık  (hareket eden topun y koordınatını rast gele atıyor)
+ frameRate(15);
+} 
+void draw() {
+  background (20);   // arka plan rengini yaptık   
+  if (x[0]<=0 || x[0]>= width || y[0]<=0 || y[0]>=height)  // eger oyun ekran dışına cıkmaya çalısırsa oyun bıtecek
+  {  
+    gameover();
+  }  
+  else if (keyPressed && (key == CODED))  //eger yon tuslarına basılırsa 
+  {
+    for (int i=num-1; i>0; i--)
+    {
+      x[i] = x[i-1];
+      y[i] = y[i-1];
+    }
+    if (keyCode == LEFT)        // yon tuslarından sol yon tusuna basarsa 
+    {
+      x[0] -= speed*d;     
+    } 
+    else if (keyCode == RIGHT)  // yon tuslarından sağ yon tusuna basarsa 
+    {
+      x[0] += speed*d;
+    }
+    else if (keyCode == UP)    // yon tuslarından yukarı yon tusuna basarsa 
+    {
+      y[0] -= speed*d;
+    } 
+    else if (keyCode == DOWN)         // yon tuslarından aşagı yon tusuna basarsa 
+    {
+      y[0] += speed*d;
+    }
+  }   
+  if (x[0]==eggx && y[0]==eggy) {      //hareket eden top sabit olan topun koordınatlarında ise num degerini yanı top sayısını bir arttırıyoruz.
+    num ++;
+    eggx = 20 * int (random(1, 39));   // sabıt olacak topun yeni koordınatlarını ramdomdan rast gele atıyoruz.
+    eggy = 20 * int (random(1, 29));
+  }   
+  fill (212, 255, 203);              //içini dolduruyoruz.
+  noStroke ();                       //çerceve olmasın dıyoruz  
+  for(int i=0; i<num; i++)
+  {
+      ellipse (x[i], y[i], d, d);  //hareket ettirdigimiz ellipsin koordınatlarını belirliyoruz
+  }
+  fill (247, 255, 203); //içini dolduruyoruz
+  ellipse (eggx, eggy, d, d);  //sabit olan ellipsin koordinatlarını belirliyoruz 
+} 
+void gameover() {
+  fill (240, 40, 40);      // içini dolduruyoruz
+  textSize (65);      //gameover yazısının boyutunu belirliyoruz
+  textAlign(CENTER); // yazıyı ortalattırıyoruz
+  text ("Game Over", width/2, height/2);  //ekranda gorunmesini sağlıyoruz.
+  fill (255);      // içini dolduruyoruz
+  textSize (30);    //yazının boyutu
+  text (num, width/2, height/2+100); //yandıgımızda kaç topun oldugunu soyluyor bize
+}
+
+int centerOrbitx = 600;
+int centerOrbity = 200;
+float centerPlanetx;
+float centerPlanety;
+int radiusOrbit = 180;
+int numPoints = 360;
+float degreesPlanet = 360.0;
+float speedPlanet = 1.0; 
+int centerOrbit2x = 600; 
+int centerOrbit2y = 200;
+float centerPlanet2x;
+float centerPlanet2y;
+int radiusOrbit2 = 160;
+int numPoints2 = 360;
+float degreesPlanet2 = 360.0;
+float speedPlanet2 = 1.5; 
+int misslePath = 230; 
+int sunEdge = 565;
+int cannonEdge = 135;
+int sunSize = 50; 
+void setup()
+{
+  size (800,400);
+  smooth ();
+  noStroke ();
+} 
+void draw()
+{
+  background (0);
+  fill (250,sunSize*1.25,0);
+  ellipse (600+((centerPlanet2x/20)-(radiusOrbit/10)),200+((centerPlanety/20)-(radiusOrbit/10)),sunSize,sunSize);
+  fill (255,200,0); 
+  rectMode (CENTER);
+  rect (misslePath,200,80,10); 
+  fill (150,150,150); 
+  rect (cannonEdge,200,40,20); 
+  fill (0,100,200); 
+  ellipse (-200,200,660,660);
+  fill (0,200,0);
+  quad (100,70,30,80,50,100,30,40);
+  quad (90,150,60,40,10,50,90,50);
+  quad (60,300,90,350,80,320,70,270);
+  quad (-100,150,-50,350,100,200,80,300);
+  quad (-50,100,-80,250,60,250,80,170); 
+  if ( misslePath > 120 ) {
+    misslePath = misslePath + 5; 
+  } 
+  if (misslePath == sunEdge) { 
+    misslePath = 120;
+    sunEdge = sunEdge - 10; 
+    sunSize = sunSize + 20;
+    speedPlanet = speedPlanet + 0.25; 
+    speedPlanet2 = speedPlanet2 + 0.5; 
+    if (sunEdge < 465 ) { 
+      sunEdge = 565;
+      sunSize = 50;
+      speedPlanet = 1.0;
+      speedPlanet2 = 1.5;
+      delay(1000);
+    }
+  } 
+  if (misslePath < centerPlanetx + 40 && misslePath > centerPlanetx - 40 ) { 
+    if (200 < centerPlanety + 5 && 200 > centerPlanety - 5 ) {
+      sunEdge = 565;
+      sunSize = 50;
+      speedPlanet = 1.0;
+      speedPlanet2 = 1.5;
+      misslePath = 230; 
+      delay(1000);  
+    }
+  } 
+  float A = 2*PI/numPoints*degreesPlanet; 
+  centerPlanetx = cos(A)*radiusOrbit;
+  centerPlanety = sin(A)*radiusOrbit;
+  centerPlanetx = centerPlanetx + centerOrbitx;
+  centerPlanety = centerPlanety + centerOrbity; 
+  fill (150,0,50); 
+  ellipse (centerPlanetx,centerPlanety,25,25); 
+  degreesPlanet = degreesPlanet + speedPlanet; 
+  if(degreesPlanet==0.0) { 
+    degreesPlanet = 360.0;
+  }
+  if (misslePath < centerPlanet2x + 40 && misslePath > centerPlanet2x - 40 ) { 
+    if (200 < centerPlanet2y + 5 && 200 > centerPlanet2y - 5 ) {
+      sunEdge = 565;
+      sunSize = 50;
+      speedPlanet = 1.0;
+      speedPlanet2 = 1.5;
+      misslePath = 230;    
+      delay(1000);
+    }
+  } 
+  float B = 2*PI/numPoints2*degreesPlanet2; 
+  centerPlanet2x = cos(B)*radiusOrbit2;
+  centerPlanet2y = sin(B)*radiusOrbit2;
+  centerPlanet2x = centerPlanet2x + centerOrbit2x;
+  centerPlanet2y = centerPlanet2y + centerOrbit2y; 
+  fill (100,100,100); 
+  ellipse (centerPlanet2x,centerPlanet2y,15,15); 
+  degreesPlanet2 = degreesPlanet2 + speedPlanet2; 
+  if(degreesPlanet2==0.0) { 
+    degreesPlanet2 = 360.0;
+  } 
+  if(keyPressed) {
+    if (misslePath == 120) { 
+      misslePath = cannonEdge; 
+    }
+  } 
+}
+
+float bx=200;
+float by=6;
+float bvy=0;
+float t=.25;
+float bvo;
+float [] l = new float[21];
+float [] hole = new float [21];
+int x=0;
+int score=0;
+int h;
+float hr;     
+PFont font;
+float s=1.2;
+float lastLine;
+boolean lose=false;
+int endScore=0;
+boolean restart=false;
+void setup ()
+{
+  size(200, 600);
+  background(0);
+  rectMode(CENTER);
+  frameRate (120);
+  stroke(255);
+  randomSeed(0);
+  initalLines();
+  initialHoles();
+  smooth();
+}
+void draw()
+{
+  if (lose)
+  {
+    lost();
+  }
+  else
+  {
+    background(0); 
+    drawLines();
+    drawBall();
+    paddle();
+    ballLocation();
+    text(score, 15, 30);
+  }
+}
+void holeCheck()
+{
+  if (bx<(hole[x]+3)&&bx>(hole[x]-3)&&by<590)    
+  {
+    ballFall();
+    x=x+1;                             
+    score=score+1;
+    if (x==21)                          
+    {
+      x=0;                            
+      s=s*1.2;
+    }
+  }
+  else                               
+  {                                  
+    by=l[x]-10;
+    bvy=0;
+    if (by<=5)                     
+    {
+      by=600;
+      lose=true;                 
+    }
+  }
+}
+void ballLocation()
+{
+  if (by<=(l[x]-10) && by<590)     
+  {
+    ballFall();            
+  }
+  else                    
+  {
+    holeCheck();
+  }  
+  if (by>595)
+  {
+    by=595;
+  }
+}
+void drawLines()                    
+{
+  for (int p=0; p<21;p++)
+  {
+    if (l[p]<=0)                  
+    {      
+      l[p]=int(random(lastLine+30, lastLine+50));  
+      randomSeed(millis());        
+      hr=random(10, width-10);
+      h=int(hr);
+      hole[p]=h;
+    }
+    stroke(255);
+    strokeWeight(2);
+    line (0, l[p]-3, width, l[p]-3);       
+    stroke(0);
+    strokeWeight(4);
+    line (hole[p]-6, l[p]-3, hole[p]+6, l[p]-3); 
+    l[p]=l[p]-1*s*t;               
+    lastLine=l[p];                 
+  }
+}
+void paddle()                      
+{
+  if (keyPressed && (key == CODED))
+  {
+    if (keyCode == RIGHT && bx<(width-5))
+    {
+      bx=bx+3;
+    }
+    else if (keyCode== LEFT && bx>(5))
+    {
+      bx=bx-3;
+    }
+  }
+}
+void ballFall ()             
+{
+  int a=3;
+  bvo=bvy;
+  bvy=bvy+a*t;             
+  by=.5*bvy*t+bvo*t+by;
+}
+void drawBall()
+{
+  stroke(255);
+  strokeWeight(1);
+  ellipse (bx, by, 10, 10);      
+}
+void initalLines()   
+{
+  l[0]=600;
+  for (int p=1; p<21;p++)
+  {
+    l[p]=int(random(l[p-1]+30, l[p-1]+50));
+  }
+}
+void initialHoles()
+{
+  for (int p=0; p<21;p++)        
+  {
+    hr=random(10, width-10);
+    h=int(hr);
+    hole[p]=h;                  
+  }
+}
+void lost()
+{
+  if (endScore<height-20)
+  {
+    
+    background(0);
+    text(score, width/2-10, endScore);
+    endScore+=1;
+  }
+  else
+  {
+    end();
+  }
+}
+void end()
+{
+  text("Click to restart", 27, height/2);
+  if (keyPressed || mousePressed)
+  {
+    restart=true;
+  }
+  if (restart)
+  {
+    initalLines();
+    initialHoles();
+    bx=200;
+    by=5;
+    bvy=0;
+    s=1.2;
+    x=0;
+    score=0;
+    lose=false;
+    endScore=0;
+    restart=false;
+  }
+}
+
+int numBalls = 100;
+float[] x = new float[numBalls];
+float[] y = new float[numBalls];
+float[] vx = new float[numBalls];
+float[] vy = new float[numBalls];
+float a = 15;
+void setup() {
+  size(500,700);
+  for (int i = 0; i < numBalls; i++)
+    x[i]=random(a, (width-a));
+  for (int i = 0; i < numBalls;i++)
+    y[i]=random(a, height-a);
+  for (int i = 0; i < numBalls;i++)
+    vx[i]=random(2,5);
+  for (int i = 0; i < numBalls;i++)
+    vy[i]=random(2,5);
+}
+void draw() {
+  background(255,255,0);
+  noStroke();  
+  for (int i = 0; i < numBalls;i++) {
+    fill(0,i*2,255-i*2);
+    ellipse(x[i],y[i],a,a);
+  x[i] = x[i] + vx[i];
+  y[i] = y[i] + vy[i];
+ if ((x[i] > width-a/2) || (x[i] < a/2)) {
+    vx[i] = vx[i] * -1;
+    
+  }
+  if ((y[i] > height-a/2) || (y[i] < a/2)) {   
+    vy[i] = vy[i] * -1;}
+  }     
+}
+
+Ball ball1;
+Ball ball2;
+// Global gravity variable
+float gravity = 0.1;  
+void setup() { 
+  size(200,200); 
+  smooth();
+  // Create ball objects
+  ball1 = new Ball(50,0,16);
+  ball2 = new Ball(100,50,32);
+} 
+void draw() { 
+  background(255); 
+  // Display ball objects
+  ball1.display();
+  ball2.display();
+  // Move ball objects
+  ball1.update();
+  ball2.update();
+} 
+class Ball {
+  float x;       // x location of square 
+  float y;       // y location of square 
+  float speed;   // speed of square 
+  float w;       // size
+  // Ball constuctor
+  Ball(float tempX, float tempY, float tempW) {
+    x = tempX;
+    y = tempY;
+    w = tempW;
+    speed = 0;
+  }
+  void display() {
+    // Display the square 
+    fill(175); 
+    stroke(0); 
+    ellipse(x,y,w,w); 
+  }
+  void update() {
+    // Add speed to location
+    y = y + speed; 
+    // Add gravity to speed
+    speed = speed + gravity; 
+    // If square reaches the bottom 
+    // Reverse speed 
+    if (y > height) { 
+      speed = speed * -0.95;  
+    } 
+  }
+}
+
+Ball ball1;
+Ball ball2;
+void setup() {
+  size(640,360);
+  // Initialize balls
+  ball1 = new Ball(64);
+  ball2 = new Ball(32);
+}
+void draw() {
+  background(255);
+  // Move and display balls
+  ball1.move();
+  ball2.move();
+  ball1.display();
+  ball2.display();
+}
+class Ball {
+  float r;   // radius
+  float x, y; // location
+  float xspeed, yspeed; // speed
+    // Constructor
+  Ball(float tempR) {
+    r = tempR;
+    x = random(width);
+    y = random(height);
+    xspeed = random( - 5, 5);
+    yspeed = random( - 5, 5);
+  }
+  void move() {
+    x += xspeed; // Increment x
+    y += yspeed; // Increment y
+    // Check horizontal edges
+    if (x > width || x < 0) {
+      xspeed *= -1;
+    }
+    //Check vertical edges
+    if (y > height || y < 0) {
+      yspeed *= -1;
+    }
+  }
+  // Draw the ball
+  void display() {
+    stroke(0);
+    fill(0, 50);
+    ellipse(x, y, r*2, r*2);
+  }
+}
+
+Ball ball1;
+Ball ball2;
+void setup() {
+  size(640, 360);
+  // Initialize balls
+  ball1 = new Ball(64);
+  ball2 = new Ball(32);
+}
+void draw() {
+  background(255);
+  // Move and display balls
+  ball1.move();
+  ball2.move();
+  if (ball1.intersect(ball2)) { // New! An object can have a function that takes another object as an argument. This is one way to have objects communicate. In this case they are checking to see if they intersect.
+    ball1.highlight();
+    ball2.highlight();
+  }
+  ball1.display();
+  ball2.display();
+}
+class Ball {
+  float r; // radius
+  float x, y;
+  float xspeed, yspeed;
+  color c = color(100, 50);
+  // Constructor
+  Ball(float tempR) {
+    r = tempR;
+    x = random(width);
+    y = random(height);
+    xspeed = random( -5, 5);
+    yspeed = random( -5, 5);
+  }
+  void move() {
+    x += xspeed; // Increment x
+    y += yspeed; // Increment y
+    // Check horizontal edges
+    if (x > width || x < 0) {
+      xspeed *= - 1;
+    }
+    // Check vertical edges
+    if (y > height || y < 0) {
+      yspeed *= - 1;
+    }
+  }
+  // Whenever the balls are touching, this highlight() function is called 
+  // and the color is darkened.
+  void highlight() { 
+    c = color(0, 150);
+  }
+  // Draw the ball
+  void display() {
+    stroke(0);
+    fill(c);
+    ellipse(x, y, r*2, r*2);
+    // After the ball is displayed, the color is reset back to a darker gray.
+    c = color(100, 50);
+  }
+  // A function that returns true or false based on whether two circles intersect
+  // If distance is less than the sum of radii the circles touch
+  boolean intersect(Ball b) {
+    // Objects can be passed into functions as arguments too! 
+    float distance = dist(x, y, b.x, b.y); // Calculate distance
+    // Compare distance to sum of radii
+    if (distance < r + b.r) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+int n=11, a=640, w=2, bk=0, wc=255;
+Cell[][] cells = new Cell[n][n];
+void setup() {
+  size(640, 640);//a*a
+  for (int i=0; i<n; i++)
+    for (int j=0; j<n; j++) {
+      cells[i][j] = new Cell(i*(a/n), j*(a/n), a/n, 0);
+      cells[i][j].rand();
+    }
+  background(bk);
+  strokeWeight(w);
+  stroke(wc);
+}
+void draw() {
+  background(bk);
+  translate((a%n)/2, (a%n)/2);
+  for (int i=0; i<n; i++)
+    for (int j=0; j<n; j++)
+      cells[i][j].display();
+  resetMatrix();
+}
+class Cell {
+  float x, y, s, pos=0, speed=1.5;
+  int m=2, type;//0-empty
+  boolean moving = false;
+  Cell(float inx, float iny, float ins, int intp) {
+    x=inx; 
+    y=iny;
+    s=ins;
+    type=intp;
+  }
+  void change(int t) {
+    if (t==0) { 
+      pos=type=0;
+      moving=false;
+    } else
+      if (t!=type) {
+      this.swap();
+    }
+  }
+  void swap() {
+    if (!moving) {
+      int ptype = type;
+      type=type%m+1;
+      if ((ptype!=type)&&(ptype!=0)) moving = true;
+    }
+  }
+  void rand() {
+    if (type==0)
+      type=ceil(random(2));
+    else 
+      if (floor(random(2))==0) 
+        this.swap();
+  }
+  boolean pressed() {
+    return ((mouseX>x)&&(mouseX<=x+s)&&(mouseY>y)&&(mouseY<=y+s));
+  }
+  void display() {
+    if (moving) pos+=speed;
+    if (pos>s) {
+      pos=0;
+      moving=false;
+    }
+    switch(type) {
+    case 0: 
+      break;
+    case 1: 
+      if (moving) {
+        line(x, y+s-pos, x+s, y+pos);
+        if (pos<s/2) {
+          line(x+s, y+s/2+pos, x+s/2-pos, y+s);
+          line(x+s/2+pos, y, x, y+s/2-pos);
+        } else { 
+          line(x-s/2+pos, y, x+s, y-s/2+pos);
+          line(x,y+s*3/2-pos,x+s*3/2-pos,y+s);
+        }
+      } else {
+        line(x, y, x+s, y+s);
+        line(x+s/2, y, x+s, y+s/2);
+        line(x, y+s/2, x+s/2, y+s);
+      }
+      break;
+    case 2: 
+      if (moving) {
+        line(x+pos, y, x+s-pos, y+s);
+        if (pos<s/2) {
+          line(x+s/2+pos, y, x+s, y+s/2+pos);
+          line(x, y+s/2-pos, x+s/2-pos, y+s);
+        } else {
+          line(x+s, y-s/2+pos, x+s*3/2-pos, y+s);
+          line(x, y+s*3/2-pos, x-s/2+pos, y);
+        }
+      } else {
+        line(x+s, y, x, y+s);
+        line(x+s/2, y, x, y+s/2);
+        line(x+s/2, y+s, x+s, y+s/2);
+      }
+      break;
+    }
+  }
+}
+void mousePressed() {
+  for (int i=0; i<n; i++)
+    for (int j=0; j<n; j++)
+      if (cells[i][j].pressed()) cells[i][j].swap();
+}
+void keyPressed() {
+  if (key=='a')
+    for (int i=0; i<n; i++)
+      for (int j=0; j<n; j++)
+        cells[i][j].change(1);
+  if (key=='d')
+    for (int i=0; i<n; i++)
+      for (int j=0; j<n; j++)
+        cells[i][j].change(2);
+  if (key=='s')
+    for (int i=0; i<n; i++)
+      for (int j=0; j<n; j++)
+        cells[i][j].swap();
+  if (key=='w')
+    for (int i=0; i<n; i++)
+      for (int j=0; j<n; j++)
+        cells[i][j].change(0);
+  if (key=='r')
+    for (int i=0; i<n; i++)
+      for (int j=0; j<n; j++)
+        cells[i][j].rand();
+}
+
+int i, n = 6;
+void setup() {
+  size(600,450);
+  strokeWeight(15);
+  stroke(255,0,0);
+  fill(0,255,0);
+}
+void draw() {
+  background(0,0,255);
+  translate(width/2f, height/2f);
+  for(i = 0; i < n; i++) {
+    rotate(2*PI/n);
+    line(-125, -200, 125, -200);
+  }
+}
+
+Button button1, button2, button3;
+int mode;
+void setup() {
+  size(600, 450);
+  color gray = color(204);
+  color white = color(255);
+  color black = color(0);
+  button1 = new Button(100, 300, 75, gray, white, black);
+  button2 = new Button(250, 300, 75, gray, white, black);
+  button3 = new Button(400, 300, 75, gray, white, black);
+}
+void draw() {
+  background(204);
+  manageButtons();
+  noStroke();
+  fill(0);
+  if (mode == 1) ellipse(100, 100, 150, 100);
+  else if (mode == 2) ellipse(250, 100, 150, 100);    
+  else if (mode == 3) ellipse(400, 100, 150, 100);  
+}
+void manageButtons() {
+  button1.update();
+  button2.update();
+  button3.update();
+  button1.display();
+  button2.display();
+  button3.display();
+}
+void mousePressed() {
+  if (button1.press()) { mode = 1; }
+  if (button2.press()) { mode = 2; }
+  if (button3.press()) { mode = 3; }
+}
+void mouseReleased() {
+  button1.release();
+  button2.release();
+  button3.release();
+}
+class Button {
+  int x, y, w;
+  color baseGray;
+  color overGray;
+  color pressGray;
+  boolean over = false;
+  boolean pressed = false;
+  Button(int xp, int yp, int s, color b, color o, color p) {
+    x = xp;
+    y = yp;
+    w = s;
+    baseGray = b;
+    overGray = o;
+    pressGray = p;
+  }
+  void update() {
+    over = mouseX > x && mouseX < x+w && mouseY > y && mouseY < y+w;
+  }
+  boolean press() {  
+    if (over == true) {
+      pressed = true;
+      return true;
+    } else return false;
+  }
+  void release() {
+    pressed = false;
+  }
+  void display() {
+    if (pressed) fill(pressGray);
+    else if (over) fill(overGray);
+    else fill(baseGray);
+    stroke(255);
+    rect(x, y, w, w);
+  }
+}
+
+float x, y, vy, ay = 0.1, a = 90;  
+void setup() {
+  size(600,450);
+  stroke(#ff0000);
+  fill(#00ff00);
+  surface.setTitle("Hasan TEMURTAŞ");
+  x = width/2f;
+}
+void draw() {
+  background(#ffff00);
+  ellipse(x,y,a,a);
+  vy += ay;
+  y += vy;
+  if (y >= height-a/2f) {
+    y = height-a/2f;
+    vy *= -0.95;
+  }
+}
+
+float x, y, q, a = 30;
+void setup() {
+  size(600,450);
+  fill(#00ff00);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  background(#ffff00);
+  strokeWeight(3);
+  stroke(#ff0000);
+  line(x,0,x,height);
+  line(0,y,width,y);
+  strokeWeight(9);
+  stroke(#0000ff);
+  line(x, y, mouseX, mouseY);
+  ellipse(x, y, a, a);
+  ellipse(mouseX, mouseY, a, a);
+  q = atan2(y-mouseY, mouseX-x);
+  if(q < 0) q += 2*PI;
+  surface.setTitle("Açı : " + degrees(q));
+}
+
+void setup() {
+  size(100, 100);
+  stroke(255);
+}
+void draw() {
+  background(0);
+  fill(80);
+  noStroke();
+  ellipse(50, 50, 80, 80);
+  float s = map(second(), 0, 60, 0, TWO_PI) - HALF_PI;
+  float m = map(minute(), 0, 60, 0, TWO_PI) - HALF_PI; 
+  float h = map(hour() % 12, 0, 12, 0, TWO_PI) - HALF_PI;
+  stroke(255);
+  line(50, 50, cos(s)*38 + 50, sin(s)*38 + 50);
+  line(50, 50, cos(m)*30 + 50, sin(m)*30 + 50);
+  line(50, 50, cos(h)*25 + 50, sin(h)*25 + 50);
+}
+
+
+Spot sp1, sp2, sp3;  // Declare the objects
+void setup() { 
+  size(100, 100);
+  noStroke();  
+  sp1 = new Spot(20, 50, 40, 0.5);  // Construct sp1
+  sp2 = new Spot(50, 50, 10, 2.0);  // Construct sp2
+  sp3 = new Spot(80, 50, 30, 1.5);  // Construct sp3
+} 
+void draw() { 
+  fill(0, 15);
+  rect(0, 0, width, height);
+  fill(255); 
+  sp1.move();
+  sp2.move();
+  sp3.move(); 
+  sp1.display();
+  sp2.display();
+  sp3.display(); 
+}
+class Spot {
+  float x, y;         // X-coordinate, y-coordinate
+  float diameter;     // Diameter of the circle
+  float speed;        // Distance moved each frame
+  int direction = 1;  // Direction of motion (1 is down, -1 is up)
+  // Constructor
+  Spot(float xpos, float ypos, float dia, float sp) {
+    x = xpos;
+    y = ypos;
+    diameter = dia;
+    speed = sp;
+  }
+  void move() {
+    y += (speed * direction); 
+    if ((y > (height - diameter/2)) || (y < diameter/2)) { 
+      direction *= -1; 
+    } 
+  }
+  void display() {
+    ellipse(x, y, diameter, diameter);
+  }
+}
+
+float x, y, a = 100, v = 2;
+void setup() {
+  size(640, 480);
+  strokeWeight(9);
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  background(#0000ff);
+  ellipse(x, y, a, a);
+  if (keyPressed == true && key == CODED)
+  if (keyCode == LEFT) {
+    x -= v;
+    if (x < -a/2f) x = a + width;
+  } else if (keyCode == RIGHT) {
+    x += v;
+    if (x > a + width) x = -a;
+  } else if (keyCode == UP) {
+    y -= v;
+    if (y < -a/2f) y = a + height;
+  } else if (keyCode == DOWN) {
+    y += v;
+    if (y > a + height) y = -a;
+  }
+}
+
+float x, y, a = 25, b = 45;
+String str = "Processing";
+void setup() {
+  size(600,450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  background(#00ff00);
+  stroke(#0000ff);
+  strokeWeight(a);
+  fill(#ff0000);
+  textSize(a);
+  x = width/2f;
+}
+void draw() {
+  line(x,0,x,height);
+  for(int i = 1; i <= 9; i++) {
+    y = i*b;
+    line(0,y,width,y);
+    switch(i) {
+      case 1: textAlign(LEFT,TOP); break;
+      case 2: textAlign(LEFT,CENTER); break;
+      case 3: textAlign(LEFT,BOTTOM); break;
+      case 4: textAlign(CENTER,TOP); break;
+      case 5: textAlign(CENTER,CENTER); break;
+      case 6: textAlign(CENTER,BOTTOM); break;
+      case 7: textAlign(RIGHT,TOP); break;
+      case 8: textAlign(RIGHT,CENTER); break;
+      case 9: textAlign(RIGHT,BOTTOM); break;
+    }
+    text(str,x,y);
+  }
+}
+
+boolean drm;
+float x, y, a = 50, b = 3;
+void setup() {
+  size(600,450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  background(0);
+  strokeWeight(a);
+}
+void draw() {
+  if (drm) {
+    x += random(-b,b);
+    y += random(-b,b);
+    stroke(random(256),random(256),random(256));
+    point(x,y);
+  }
+}
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    drm = true;
+    x = mouseX;
+    y = mouseY;
+  } else {
+    drm = false;
+    background(0);
+  }
+}
+
+float x, y, w, h, v = 3;
+void setup() {
+  size(600,450);
+  fill(0,0,255);
+  stroke(255,0,0);
+  strokeWeight(9);
+  x = w = width/3f;
+  y = h = height/3f;
+}
+void draw() {
+  if ( keyPressed && key == CODED ) {
+    switch (keyCode) {
+      case LEFT: x -= v;
+        if ( x < -w ) x = width;
+        break;
+      case RIGHT: x += v;
+        if ( x > width ) x = -w;
+        break;
+      case UP: y -= v;
+        if( y < -h ) y = height;
+        break;
+      case DOWN: y += v;
+        if( y > height ) y = -h;
+        break;
+    }
+  }
+  background(255, 255, 0);
+  rect(x, y, w, h);
+}
+
+int i, n = 25;
+Walker[] walkers = new Walker[n];
+void setup(){
+  size(600,450);
+  background(0);
+  stroke(#ffff00);
+  fill(#ff0000);
+  for(i = 0; i < n; i++ )
+    walkers[i] = new Walker();
+}
+void draw() {
+  for(i = 0; i < n; i++ ) {
+    walkers[i].display();
+    walkers[i].step();
+  }
+}
+class Walker {
+  float x, y, a = 5, b = 3;
+  Walker() {
+    x = width/2f;
+    y = height/2f;
+  }
+  void display() {
+    ellipse(x,y,a,a);
+  }
+  void step() {   
+    x += random(-b,b);
+    y += random(-b,b);
+  }
+}
+
+ArrayList<Particle> particles;
+void setup() {
+  size(600, 450);
+  particles = new ArrayList<Particle>();
+}
+void draw() {
+  particles.add(new Particle()); 
+  background(255);
+  for (Particle p : particles) { 
+    p.run();
+    p.gravity();
+    p.display();
+  }
+  if (particles.size() > 100) particles.remove(0);
+}
+class Particle {
+  float x, y, xspeed, yspeed;
+  Particle() {
+    x = mouseX;
+    y = mouseY;
+    xspeed = random(-1,1);
+    yspeed = random(-2,0);
+  }
+  void run() {
+    x += xspeed;
+    y += yspeed;
+  }
+  void gravity() {
+    yspeed += 0.1;
+  }
+  void display() {
+    stroke(0);
+    fill(0,75);
+    ellipse(x,y,10,10);
+  }
+}
+
+Rect r;
+Circle c;
+void setup() { 
+  size(600, 450); 
+  r = new Rect(50, 50, 150);
+  c = new Circle(300, 150, 150);
+  noStroke(); 
+} 
+void draw() { 
+  background(204); 
+  r.update(mouseX, mouseY);
+  r.display();
+  c.update(mouseX, mouseY);
+  c.display();
+} 
+class Circle {
+  int x, y, a, c;
+  Circle(int X, int Y, int A) {
+    x = X;
+    y = Y;
+    a = A;
+    c = 0;
+  }
+  void update(int mx, int my) {
+    if(dist(mx, my, x, y) < a/2) c = 255;
+    else c = 0;
+  }
+  void display() {
+    fill(c);
+    ellipse(x, y, a, a);
+  }
+}
+class Rect {
+  int x, y, a, c;
+  Rect(int X, int Y, int A) {
+    x = X;
+    y = Y;
+    a = A;
+    c = 0;
+  }
+  void update(int mx, int my) {
+    if (mx > x && mx < x+a && my > y && my < y+a) c = 255;
+    else c = 0;
+  }
+  void display() {
+    fill(c);
+    rect(x, y, a, a);
+  }
+}
+
+void setup() {
+  size(800,600);
+  int[] dizi = { 3, 5, 9, 12, 7 };
+  ciz(dizi);
+}
+void ciz(int[] dizi) {
+  noStroke();
+  float x = width/2f, y = height/2f;
+  float a = 0.85*min(width,height);
+  float qi, qf = 0;
+  int i, n = dizi.length, toplam = 0;
+  for(i = 0; i < n; i++)
+    toplam += dizi[i];
+  for(i = 0; i < n; i++) {
+    qi = qf;
+    qf += 2*PI*dizi[i]/toplam;
+    fill(random(256),random(256),random(256));
+    arc(x,y,a,a,qi,qf);
+  }
+}
+
+int i, n = 300;
+float a, b, q, k;
+void setup() {
+  size(600,450);
+  strokeWeight(5);
+  stroke(#ff0000);
+  fill(#00ff00);  
+  noCursor();
+}
+void draw() {
+  q = 2*PI*i/n;
+  println("Açı : " + q + " Radyan");
+  k = 0.3 + 0.2*sin(q);
+  a = k*width;
+  b = k*height;
+  background(#0000ff);
+  ellipse(mouseX,mouseY,a,b);
+  i = (i+1)%n;
+}
+
+int n;
+void setup() {
+  size(600,450);
+  background(#ffff00);
+  strokeWeight(5);
+  stroke(#ff0000);
+  fill(#0000ff);
+  noLoop();
+}
+void draw() {
+  println("Frame Sayısı : " + frameCount);
+  println("Elips Sayısı : " + n + "\n");
+  if( n == 0 ) background(#ffff00);
+  else ellipse(mouseX,mouseY,width/4f,height/4f);
+}
+void mousePressed() {
+  if(mouseButton == LEFT) n++; else n = 0;
+  redraw();
+}
+
+int i, n = 300;
+float x, y, w, h, k;
+void setup() {
+  size(600,450);
+  fill(#ffff00,150);
+  noStroke();
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  k = 0.6 - 0.4*cos(2*PI*i/n);
+  w = width*k;
+  h = height*k;
+  background(#0000ff);
+  ellipse(x,y,w,h);
+  ellipse(0,y,w,h);
+  ellipse(2*x,y,w,h);
+  ellipse(x,0,w,h);
+  ellipse(x,2*y,w,h);
+  i = (i+1) % n;
+}
+
+boolean drm;
+float a, b;
+void setup() {
+  size(600,450);
+  a = width/3f;
+  b = height/3f;
+  noStroke();
+}
+void draw() {
+  if( drm ) {
+    drm = false;
+    fill(#ff0000);
+  } else fill(#00ff00);
+  background(#0000ff);
+  ellipse(mouseX,mouseY,a,b);
+}
+void mouseDragged() {
+  drm = true;
+}
+
+int i, n = 120;
+float q;
+void setup() {
+  size(600,450);
+  strokeWeight(15);
+  stroke(255,0,0);
+  fill(0,255,0);
+}
+void draw() {
+  background(0,0,255);
+  translate(width/2f, height/2f);
+  rotate(q);
+  line(0,0,200,0);
+  i = (i+1) % n;
+  q = 2*PI*i/(n-1);
+}
+
+PImage img;
+String str = "../Pictures/Resim00.jpg";
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+  img = loadImage(str);
+}
+void draw() {
+  image(img,width/2f,height/2f);
+  surface.setTitle("Frame Count : " + frameCount);
+}
+void mousePressed() {
+  tint(0,255,255);
+}
+void mouseReleased() {
+  noTint();
+}
+
+PImage img;
+color rnk;
+String str = "../Pictures/Resim00.jpg";
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+  img = loadImage(str);
+  noLoop();
+}
+void draw() {
+  background(rnk);
+  image(img, width/2f, height/2f);
+  str = "Frame Sayısı: " + frameCount;
+  str += ", Kırmızı: " + nf((int)red(rnk),3);
+  str += ", Yeşil: " + nf((int)green(rnk),3);
+  str += ", Mavi: " + nf((int)blue(rnk),3);
+  surface.setTitle(str);
+}
+void mouseMoved() {
+  rnk = get(mouseX, mouseY);
+  redraw();
+}
+
+Circle[] circle;
+int i, n = 15;
+float x, y, a;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  circle = new Circle[n];
+  for(i = 0; i < n; i++) {
+    a = random(50,120);
+    x = a/2f + random(0,width-a);
+    y = a/2f + random(0,height-a);
+    circle[i] = new Circle(x,y,a);
+  }
+}
+void draw() {
+  background(#ffff00);
+  for(i = 0; i < n; i++)
+    circle[i].display(mouseX,mouseY);
+}
+void mouseDragged()  {
+  for(i = 0; i < n; i++)
+    circle[i].drag(mouseX,mouseY,pmouseX,pmouseY);
+}
+class Circle {
+  boolean drm;
+  float x, y, a;
+  Circle(float x, float y, float a) {
+    this.x = x;
+    this.y = y;
+    this.a = a;
+  }
+  void drag(int mx, int my, int nx, int ny) {
+    if(drm) {
+      x += mx-nx;
+      y += my-ny;
+    }
+  }
+  void display(int mx, int my) {
+    drm = dist(x,y,mx,my) < a/2f;
+    if(drm) strokeWeight(15); else strokeWeight(5);
+    stroke(#ff0000);
+    fill(#00ff00);
+    ellipseMode(CENTER);
+    ellipse(x, y, a, a);
+  }
+}
+
+Quad[] quad;
+int i, n = 15;
+float x, y, w, h;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  quad = new Quad[n];
+  for(i = 0; i < n; i++) {
+    w = random(50,120);
+    h = random(50,120);
+    x = w/2f + random(0,width-w);
+    y = h/2f + random(0,height-h);
+    quad[i] = new Quad(x,y,w,h);
+  }
+}
+void draw() {
+  background(#ffff00);
+  for(i = 0; i < n; i++)
+    quad[i].display(mouseX,mouseY);
+}
+void mouseDragged()  {
+  for(i = 0; i < n; i++)
+    quad[i].drag(mouseX,mouseY,pmouseX,pmouseY);
+}
+class Quad {
+  boolean drm;
+  float x, y, w, h;
+  Quad(float x, float y, float w, float h) {
+    this.x = x - w/2;
+    this.y = y - h/2;
+    this.w = w;
+    this.h = h;
+  }
+  void drag(int mx, int my, int nx, int ny) {
+    if(drm) {
+      x += mx-nx;
+      y += my-ny;
+    }
+  }
+  void display(int mx, int my) {
+    drm = mx>x && mx<x+w && my>y && my<y+h;
+    if(drm) strokeWeight(15); else strokeWeight(5);
+    stroke(#ff0000);
+    fill(#00ff00);
+    rectMode(CORNER);
+    rect(x, y, w, h);
+  }
+}
+
+int i, n = 240;
+float a, b, d, x, y, q, r = 25;
+void setup() {
+  size(600,450);
+  ellipseMode(RADIUS);
+  strokeWeight(5);
+  stroke(0,0,255);
+  fill(0,255,0);
+  a = width/2f;
+  b = height/2f;
+  d = dist(0,0,a,b);
+}
+void draw() {
+  q = 2*PI*i/n;
+  surface.setTitle("Açı : " + q + " Radyan");
+  x = a*cos(q);
+  y = sqrt(pow(d,2)-pow(x,2));
+  x += a;
+  background(#ffff00);
+  line(a,0,x,y);
+  ellipse(x,y,r,r);
+  i = (i+1) % n;
+}
+
+int i, n;
+float r,g,b;
+boolean drm;
+String str;
+void setup() {
+  size(800,600);
+  loadPixels();
+  n = pixels.length;
+}
+void draw() {
+  if (drm) {
+    for (i = 0; i < n; i++) {
+      r = random(256);
+      g = random(256);
+      b = random(256);
+      pixels[i] = color(r,g,b);
+    }
+    updatePixels();
+  }
+  str = String.format("FrameRate : %f", frameRate);
+  str += String.format(", FrameCount : %d", frameCount);
+  surface.setTitle(str);
+}
+void mousePressed() {
+ drm = !drm;
+}
+
+float x, y, d = 35;
+int t, dt = 1000;
+void setup() {
+  size(800,600);
+  background(255);
+  strokeWeight(d);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  if( millis() >= t ) {
+    t = millis();
+    println("Run Time : ", t);
+    t += dt;
+    fill(random(256),random(256),random(256));
+    stroke(random(256),random(256),random(256));
+    ellipse(x,y,width-d,height-d);
+  }
+}
+
+float x, y, vx, vy, v = 5, a = 90;
+void setup() {
+  size(800,600);
+  strokeWeight(5);
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = width / 2f;
+  y = height / 2f;
+}
+void draw() {
+  background(#0000ff);
+  ellipse(x,y,a,a);
+  x += vx;
+  y += vy;
+  if(x<=a/2 || x>=width-a/2) vx = -vx;
+  if(y<=a/2 || y>=height-a/2) vy = -vy;
+}
+void mousePressed() {
+  float d = dist(x,y,mouseX,mouseY);
+  vx = v * (mouseX-x) / d;
+  vy = v * (mouseY-y) / d;  
+}
+
+void setup() {
+  size(800,600);
+  stroke(#00ff00);
+  fill(#ff0000);
+}
+void draw() {
+  if( mousePressed ) {
+    cursor(HAND);
+    strokeWeight(15);
+  } else {
+    cursor(ARROW);
+    strokeWeight(5);
+  }
+  background(#0000ff);
+  ellipse(mouseX,mouseY,width/4f,height/4f);
+  println("FrameCount : " + frameCount);
+  println(" FrameRate : " + frameRate + '\n');
+}
+
+PFont fnt;
+String str;
+int i, n = 1000, t, dt = 100;
+void setup() {
+  size(600,350);
+  textAlign(CENTER,CENTER);
+  fnt = createFont("Courier New Bold",300);
+  textFont(fnt);
+  fill(#0000ff);
+}
+void draw() {
+  if( millis() >= t ) {
+    t = millis();
+    background(#ffff00);
+    text(nf(i,3),width/2f,height/2f-25);
+    surface.setTitle("Süre : " + t/1000f + " sn");
+    i = (i+1) % n;
+    t += dt;
+  }
+}
+
+ScrollBar sBar;
+PFont font;
+void setup() {
+  size(600, 250);
+  noStroke();
+  sBar = new ScrollBar(50, 100, 500, 30, 0, 100);
+}
+void draw() {
+  background(#0000ff);
+  surface.setTitle("Value : " + sBar.getValue());
+  sBar.display(mouseX, mouseY);
+}
+void mousePressed() {
+  sBar.press();
+}
+void mouseReleased() {
+  sBar.release();
+}
+class ScrollBar {
+  float x, y, w, h, pos, posMin, posMax, minVal, maxVal;
+  boolean over, lock;
+  ScrollBar (float x, float y, float w, float h, float minVal, float maxVal) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.minVal = minVal;
+    this.maxVal = maxVal;
+    posMin = x;
+    posMax = x + w - h;
+    pos = (posMin + posMax) / 2f;
+  }
+  void press() {
+    lock = over;
+  }
+  void release() {
+    lock = false;
+  }
+  void display(int mx, int my) {
+    over = mx > x && mx < x+w && my > y && my < y+h;
+    if(lock) pos = constrain(mx-h/2f, posMin, posMax);
+    fill(255);
+    rect(x, y, w, h);
+    if(lock) fill(#00ff00); else fill(#ff0000);
+    rectMode(CORNER);
+    rect(pos, y, h, h);
+  }
+  float getValue() {
+    float rate = (pos - x) / (w-h);
+    return minVal + rate*(maxVal-minVal);
+  }
+}
+
+int x, y, a = 55, i, n = 48;
+RadioButton[] btn;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  btn = new RadioButton[n];
+  for(i = 0; i < n; i++) {
+    x = a + (a+15)*(i%8);
+    y = a + (a+15)*(i/8);
+    btn[i] = new RadioButton(x, y, a, i, btn);
+  }
+}
+void draw() {
+  background(#ffff00);
+  for(i = 0; i < n; i++) btn[i].display();
+}
+void mousePressed() {
+  for(i = 0; i < n; i++) btn[i].press(mouseX, mouseY);
+}
+class RadioButton {
+  boolean drm;
+  int x, y, a, b, k;
+  RadioButton[] others;
+  RadioButton(int x, int y, int a, int k, RadioButton[] o) {
+    this.x = x;
+    this.y = y;
+    this.a = a;
+    this.k = k;
+    b = (int)(0.7*a);
+    others = o;
+  }
+  void press(float mx, float my) {
+    drm = dist(x, y, mx, my) < a/2f;
+    if(drm)
+      for(int i = 0; i < others.length; i++)
+        if(i != k) others[i].drm = false;
+  }
+  void display() {
+    ellipseMode(CENTER);
+    noStroke();
+    fill(#ff0000);
+    ellipse(x, y, a, a);
+    if (drm) {
+      fill(#00ff00);
+      ellipse(x, y, b, b);
+    }
+  }
+}
+
+int i, n = 30, x, y, w = 75, h = 65;
+CheckBox[] cBox;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  cBox = new CheckBox[n];
+  for(i = 0; i < n; i++) {
+    x = 25 + (w+20)*(i%6);
+    y = 25 + (h+20)*(i/6);
+    cBox[i] = new CheckBox(x, y, w, h);
+  }
+}
+void draw() {
+  background(#0000ff);
+  for(i = 0; i < n; i++) cBox[i].display();
+}
+void mousePressed() {
+  for(i = 0; i < n; i++) cBox[i].press(mouseX, mouseY);
+}
+class CheckBox {
+  boolean drm;
+  float x, y, w, h;
+  CheckBox(float x, float y, float w, float h) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+  }
+  void press(float mx, float my) {
+    if(mx>x && mx<x+w && my>y && my<y+h) drm = !drm;
+  }
+  void display() {
+    rectMode(CORNER);
+    strokeWeight(5);
+    stroke(#ff0000);
+    fill(#00ff00);
+    rect(x, y, w, h);
+    if(drm) {
+      line(x, y, x+w, y+h);
+      line(x+w, y, x, y+h);
+    }
+  }
+}
+
+int i, n = 30, x, y, w = 75, h = 65;
+CheckBox[] cBox;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  cBox = new CheckBox[n];
+  for(i = 0; i < n; i++) {
+    x = 25 + (w+20)*(i%6);
+    y = 25 + (h+20)*(i/6);
+    cBox[i] = new CheckBox(x,y,w,h);
+  }
+}
+void draw() {
+  background(#0000ff);
+  for(i = 0; i < n; i++) cBox[i].display();
+}
+void mousePressed() {
+  for(i = 0; i < n; i++) cBox[i].click(mouseX, mouseY);
+}
+class CheckBox {
+  boolean drm;
+  float x, y, w, h;
+  CheckBox(float x, float y, float w, float h) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+  }
+  void click(int mx, int my) {
+    if(mx>x && mx<x+w && my>y && my<y+h) drm = !drm;
+  }
+  void display() {
+    noStroke();
+    if(drm) fill(#00ff00); else fill(#ff0000);
+    rectMode(CORNER);
+    rect(x,y,w,h);
+  }
+}
+
+Ring ring;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  ring = new Ring();
+}
+void draw() {
+  background(#ffff00);
+  ring.display();
+}
+void mousePressed() {
+  ring.press(mouseX, mouseY);
+}
+class Ring {
+  float x, y, i, n = 300, a, aMin = 20, aMax = 200;
+  boolean drm;
+  void press(float mx, float my) {
+    drm = true;
+    i = 0;
+    x = mx;
+    y = my;
+  }
+  void display() {
+    if(drm) {
+      a = aMin + (1-cos(2*PI*i/n))*(aMax-aMin)/2f;
+      i = (i+1) % n;
+      noFill();
+      strokeWeight(5);
+      stroke(#0000ff);
+      ellipseMode(CENTER);
+      ellipse(x, y, a, a);
+    }
+  }
+}
+
+Ring[] ring;
+int i, j, n = 5;
+void setup() {
+  size(600, 450);
+  surface.setTitle("Hasan TEMURTAŞ");
+  ring = new Ring[n];
+  for(i = 0; i < n; i++) ring[i] = new Ring();
+}
+void draw() {
+  background(#ffff00);
+  for(i = 0; i < n; i++) ring[i].display();
+}
+void mousePressed() {
+  ring[j].press(mouseX, mouseY);
+  j = (j+1) % n;
+}
+class Ring {
+  float x, y, i, n = 300, a, aMin = 20, aMax = 200;
+  boolean drm;
+  void press(float mx, float my) {
+    drm = true;
+    i = 0;
+    x = mx;
+    y = my;
+  }
+  void display() {
+    if(drm) {
+      a = aMin + (1-cos(2*PI*i/n))*(aMax-aMin)/2f;
+      i = (i+1) % n;
+      noFill();
+      strokeWeight(5);
+      stroke(#0000ff);
+      ellipseMode(CENTER);
+      ellipse(x, y, a, a);
+    }
+  }
+}

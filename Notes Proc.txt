@@ -1,0 +1,473 @@
+// 01
+void setup() {
+  size(800,600);
+  background(#00ff00);
+  ciz(3,250,100,5,#ff0000);
+}
+void ciz(float f, int a, int n, int d, int c) {
+  float xp = 0, yp = height/2f;
+  float x, y, t;
+  strokeWeight(d);
+  stroke(c);
+  for(int i = 1; i < n; i++) {
+    t = (float)i/(n-1);
+    x = width * t;
+    y = height/2f - a*sin(2*PI*f*t);
+    line(xp,yp,x,y);
+    xp = x;
+    yp = y;
+  }
+}
+
+// 02
+float x, y;
+color c1, c2;
+void setup() {
+  size(800,600);
+  x = width/2f;
+  y = height/2f;
+  mousePressed = true;
+}
+void draw() {
+  if(mousePressed) {
+    mousePressed = false;
+    c1 = color(random(256),random(256),random(256));
+    c2 = color(random(256),random(256),random(256));
+  }
+  background(#ffff00);
+  strokeWeight(50);
+  stroke(c1);
+  line(x,y,mouseX,mouseY);
+  strokeWeight(35);
+  stroke(c2);
+  line(x,y,mouseX,mouseY);
+}
+
+// 03
+float x, y, a, b, k;
+void setup() {
+  size(800,600);
+  strokeWeight(15);
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = width/2f;
+  y = height/2f;
+  k = 2*sqrt(2);
+}
+void draw() {
+  background(0,0,255);
+  a = k*(mouseX-x);
+  b = k*(mouseY-y);
+  ellipse(x,y,a,b);
+}
+
+// 04
+float x,y,d,a,aMin,aMax,aAdd;
+void setup() {
+  size(800,600);
+  strokeWeight(10);
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = width/2f;
+  y = height/2f;
+  aMax = min(width,height);
+  a = aMin = aMax / 5;
+  aAdd = (aMax-aMin)/120;
+}
+void draw() {
+  background(#0000ff);
+  ellipse(x,y,a,a);
+  d = dist(x,y,mouseX,mouseY);
+  if (d > a/2) {
+    if(a > aMin) a -= aAdd;
+  } else {
+    if(a < aMax) a += aAdd;
+  }
+}
+
+// 05
+int n;
+boolean ciz;
+void setup() {
+  size(800,600);
+  background(255);
+  strokeWeight(5);
+}
+void draw() {
+  if(ciz) line(pmouseX,pmouseY,mouseX,mouseY);
+}
+void mousePressed() {
+  if(mouseButton == LEFT) ciz = true;
+  else if(mouseButton == RIGHT)
+    stroke(random(256),random(256),random(256));
+  else {
+    saveFrame("Resim" + nf(++n,2) + ".png");
+    background(255);
+  }
+}
+void mouseReleased() {
+  if(mouseButton == LEFT) ciz = false;
+}
+
+// 06
+void setup() {
+  size(800,600);
+  strokeWeight(3);
+  stroke(#ff0000);
+  fill(#00ff00);
+}
+void draw() {
+  background(#ffff00);
+  zincir(width/2,height/2,mouseX,mouseY,45);
+}
+void zincir(int xi, int yi, int xf, int yf, int a) {
+  float x, y, d, q;
+  q = atan2(yf-yi,xf-xi);
+  d = dist(xi,yi,xf,yf);
+  int i, n = 1 + round(d/a);
+  for (i = 0; i < n; i++ ) {
+    x = xi + i*a*cos(q);
+    y = yi + i*a*sin(q);
+    ellipse(x,y,a,a);
+  }
+}
+
+// 07
+float x, y, vx, vy, d, v = 5, a = 90;
+void setup() {
+  size(800,600);
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  background(#0000ff);
+  ellipse(x,y,a,a);
+  d = dist(x,y,mouseX,mouseY);
+  if ( d < v ) {
+    strokeWeight(15);
+    x = mouseX;
+    y = mouseY;
+  } else {
+    strokeWeight(5);
+    vx = v * (mouseX-x) / d;
+    vy = v * (mouseY-y) / d;
+    x += vx;
+    y += vy;
+  }
+}
+
+// 08
+int i, n = 300;
+float x, y, a, b, q, r = 35;
+void setup() {
+  size(800,600);
+  strokeWeight(5);
+  ellipseMode(RADIUS);
+  a = width/2f;
+  b = height/2f;
+}
+void draw() {
+  background(#0000ff);
+  stroke(#00ff00);
+  noFill();
+  ellipse(a,b,a-r,b-r);
+  q = 2*PI*i/n;
+  x = a + (a-r)*cos(q);
+  y = b + (b-r)*sin(q);
+  noStroke();
+  fill(#ff0000);
+  ellipse(x,y,r,r);
+  i = (i+1) % n;
+}
+
+// 09
+PFont fnt; String str; int h, m, s = 60;
+void setup() {
+  size(700,150);
+  fnt = createFont("Courier New Bold",135);
+  //fnt = loadFont("CourierNewPS-BoldMT-135.vlw");
+  textFont(fnt);
+  textAlign(CENTER,CENTER);
+  fill(#0000ff);
+}
+void draw() {
+  if(s != second()) {
+    s = second();
+    m = minute();
+    h = hour();
+    str = nf(h,2)+':'+nf(m,2)+':'+nf(s,2);
+    background(#ffff00);    
+    text(str,width/2f,height/2f);
+    println(str);
+  }
+}
+
+// 10
+PFont fnt; String str; boolean stop;
+void setup() {
+  size(800,150);
+  str = "Hasan Temurtaş   ";
+  fnt = createFont("Consolas Bold", 83);
+  //fnt = loadFont("Consolas-Bold-83.vlw");
+  textFont(fnt);
+  textAlign(CENTER,CENTER);
+  fill(#ff0000);
+  frameRate(5);
+}
+void draw() {
+  if(stop) return;
+  background(#00ff00);
+  text(str,width/2f,height/2f);
+  str = str.substring(1) + str.charAt(0);
+}
+void mousePressed() {
+  stop = !stop;
+}
+
+// 11
+PImage image;
+String name;
+int t, i, n = 16;
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+}
+void draw() {
+  if( millis() >= t ) {
+    t = 500 + millis();
+    name = "../Pictures/Resim" + nf(i,2) + ".jpg";
+    surface.setTitle(name);
+    image = loadImage(name);
+    background(255);
+    image(image,width/2,height/2);
+    System.gc();
+    i = (i+1) % n;
+  }
+}
+
+// 12
+PImage[] image;
+String[] name;
+int t, i, n = 16;
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+  image = new PImage[n];
+  name = new String[n];
+  for(i = 0; i < n; i++) {
+    name[i] = "../Pictures/Resim" + nf(i,2) + ".jpg";
+    image[i] = loadImage(name[i]);
+  }
+  i = n - 1;
+}
+void draw() {
+  if ( millis() >= t ) {
+    t = 500 + millis();
+    i = (i+1) % n;
+    background(255);
+    image(image[i],width/2f,height/2f);
+    surface.setTitle(name[i]);
+  }
+}
+
+// 13
+String[] name;
+PImage[] image;
+int i, j, n = 16;
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+  name = new String[n];
+  image = new PImage[n];
+  for(i = 0; i < n; i++) {
+    name[i] = "../Pictures/Resim" + nf(i,2) + ".jpg";
+    image[i] = loadImage(name[i]);
+  }
+  i = (int)random(n);
+  noLoop();
+}
+void draw() {
+  background(255);
+  image(image[i],width/2f,height/2f);
+  surface.setTitle(name[i]);
+  println("FrameCount : " + frameCount);
+}
+void mousePressed() {
+  j = i;
+  do i = (int)random(n); while(i==j);
+  redraw();
+}
+
+// 14
+PImage img;
+String name = "../Pictures/Resim00.jpg";
+float x, y, w, h;
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+  img = loadImage(name);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  background(#ffff00);
+  if (mousePressed) {
+    w = 2*abs(mouseX-x);
+    h = 2*abs(mouseY-y);
+    image(img,x,y,w,h);
+  } else image(img,x,y);
+  surface.setTitle("Frame Count : " + frameCount);
+}
+
+// 15
+PImage img;
+String name = "../Pictures/Resim00.jpg";
+int i, n = 300;
+float x, y, w, h, k;
+void setup() {
+  size(800,600);
+  imageMode(CENTER);
+  img = loadImage(name);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  k = 0.55 + 0.45*cos(2*PI*i/n);
+  w = k*img.width;
+  h = k*img.height;
+  i = (i+1) % n;
+  background(#ffff00);
+  image(img,x,y,w,h);
+  surface.setTitle("Frame Count : " + frameCount);
+}
+
+// 16
+float x, y, a = 120;
+boolean drm;
+void setup() {
+  size(800,600);
+  surface.setTitle("Hasan TEMURTAŞ");
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = width/2f;
+  y = height/2f;
+}
+void draw() {
+  drm = dist(x,y,mouseX,mouseY) < a/2f;
+  if (drm) strokeWeight(15); else strokeWeight(5);
+  background(0,0,255);
+  ellipse(x, y, a, a);
+}
+void mouseDragged() {
+  if(drm) {
+    x += mouseX-pmouseX;
+    y += mouseY-pmouseY;
+  }
+}
+
+// 17
+float x, y, w = 120, h = 90;
+boolean drm;
+void setup() {
+  size(800,600);
+  surface.setTitle("Hasan TEMURTAŞ");
+  stroke(#ff0000);
+  fill(#00ff00);
+  x = (width-w)/2f;
+  y = (height-h)/2f;
+}
+void draw() {
+  drm = mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+h;
+  if (drm) strokeWeight(15); else strokeWeight(5);
+  background(0,0,255);
+  rect(x, y, w, h);
+}
+void mouseDragged() {
+  if(drm) {
+    x += mouseX-pmouseX;
+    y += mouseY-pmouseY;
+  }
+}
+
+// 18
+String line, lines[] = new String[0];
+void setup() {
+  size(800,600);
+  background(#0000ff);
+  strokeWeight(5);
+  stroke(#ff0000);
+  fill(#00ff00);
+  noLoop();
+}
+void draw() {
+  surface.setTitle("Daire Sayısı : " + lines.length);
+  if(lines.length > 0)
+    ellipse(mouseX,mouseY,width/5f,height/5f);
+}
+void mousePressed() {
+  if( mouseButton == LEFT ) {
+    line = String.format("%9d%9d",mouseX,mouseY);
+    lines = append(lines,line);
+    redraw();
+  } else saveStrings("dosya.txt", lines);
+}
+
+// 19
+String[] lines, lins;
+int i, x, y;
+boolean drm;
+void setup() {
+  size(800,600);
+  strokeWeight(5);
+  stroke(#ff0000);
+  fill(#00ff00);
+  lines = loadStrings("dosya.txt");
+  surface.setTitle("Daire Sayısı : " + lines.length);
+  noLoop();
+}
+void draw() {
+  background(#0000ff);
+  if(drm) {
+    for(i = 0; i < lines.length; i++) {
+      lins = lines[i].trim().split("\\s+");
+      x = int(lins[0]);
+      y = int(lins[1]);
+      ellipse(x,y,width/5f,height/5f);
+    }
+  }
+}
+void mousePressed() {
+  drm = !drm;
+  redraw();
+}
+
+// 20
+int i, n = 300;
+float q, r = 100;
+void setup() {
+  size(800,600);
+  surface.setTitle("Hasan TEMURTAŞ");
+  stroke(#00ff00);
+  fill(#ff0000);
+}
+void draw() {
+  if( mousePressed ) strokeWeight(15); else strokeWeight(5);
+  background(#0000ff);
+  q = 2*PI*i/n;
+  star(mouseX,mouseY,r,q);
+  i = (i+1) % n;
+}
+void star(float a, float b, float c, float d) {
+  float x, y, r, q;
+  beginShape();
+  for(int i = 0; i < 10; i++) {
+    if( i % 2 == 0 ) r = c; else r = 0.4*c;
+    q = d + i*PI/5;
+    x = a + r*cos(q);
+    y = b + r*sin(q);
+    vertex(x,y);
+  }
+  endShape(CLOSE);
+}
